@@ -1,0 +1,8 @@
+.slick-dots {
+    bottom: -40px; /* Adjust the vertical position as needed */
+  }
+
+  .slick-dots li button:before {
+    font-size: 14px; /* Increase the font size to make the dots bigger */
+    color: #254067; /* Change the dot color if needed */
+  }
