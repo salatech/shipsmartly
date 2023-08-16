@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import HeroImage from "../assets/heroImage.jpg";
+import HeroImage from "../assets/heroImg.jpg";
 import HeroImg from "../assets/hero.jpg";
 
 
