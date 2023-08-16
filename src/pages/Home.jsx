@@ -10,7 +10,6 @@ import Footer from '../components/Footer'
 const Home = () => {
   return (
     <div>
-      <Navbar />
       <Hero 
        header="ShipSmartly Logistics & Tracking Platform!"
        paragraph="Our mission is to provide secure and efficient shipping solutions for confidential packages across international borders."
@@ -20,7 +19,7 @@ const Home = () => {
        <Services />
        <CustomerReviews />
        <GetInTouch />
-       <Footer />
+
     </div>
   )
 }
