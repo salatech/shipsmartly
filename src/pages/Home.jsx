@@ -1,6 +1,4 @@
 import React from 'react'
-
-import { useLocation } from 'react-router-dom';
 import GridSection from '../components/GridSection'
 import AboutFlow from '../components/AboutFlow'
 import Services from '../components/Services'

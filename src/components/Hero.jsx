@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import HeroImage from "../assets/heroShip.jpg";
 
 const Hero = ({ header, paragraph, buttonText }) => {
   const [code, setCode] = useState("");
@@ -38,7 +37,7 @@ const Hero = ({ header, paragraph, buttonText }) => {
 
 const HeroContainer = styled.div`
   font-family: sans-serif;
-  background-image: url(${HeroImage});
+  background-image: url(https://res.cloudinary.com/dvd8hlffl/image/upload/v1692179296/heroShip_dacv6i.jpg);
   background-size: cover;
   background-position: center;
   box-shadow: 0px 4px 4px 0px #00000040, inset 0 0 0 1000px rgba(0, 0, 0, 0.7);

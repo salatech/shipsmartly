@@ -1,12 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import HeroImage from "../assets/heroImg.jpg";
 import Services from "../components/Services";
 import AboutCon from "../components/AboutCon";
 import GetInTouch from "../components/GetInTouch";
 const HeroContainer = styled.div`
   font-family: sans-serif;
-  background-image: url(${HeroImage});
+  background-image: url(https://res.cloudinary.com/dvd8hlffl/image/upload/v1692179293/heroImg_voxiay.jpg);
   background-size: cover;
   background-position: center;
   box-shadow: 0px 4px 4px 0px #00000040, inset 0 0 0 1000px rgba(0, 0, 0, 0.7);

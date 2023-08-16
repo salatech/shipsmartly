@@ -1,9 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import ServiceImg1 from "../assets/service1.jpg";
-import ServiceImg2 from "../assets/service2.jpg";
-import ServiceImg3 from "../assets/service3.jpg";
-
 const Services = () => {
   return (
     <>
@@ -81,15 +77,15 @@ const ServiceImage = styled.div`
 `;
 
 const ServiceImage1 = styled(ServiceImage)`
-  background-image: url(${ServiceImg1});
+  background-image: url(https://res.cloudinary.com/dvd8hlffl/image/upload/v1692179304/service1_zh3oca.jpg);
 `;
 
 const ServiceImage2 = styled(ServiceImage)`
-  background-image: url(${ServiceImg2});
+  background-image: url(https://res.cloudinary.com/dvd8hlffl/image/upload/v1692179301/service2_fpbfrb.jpg);
 `;
 
 const ServiceImage3 = styled(ServiceImage)`
-  background-image: url(${ServiceImg3});
+  background-image: url(https://res.cloudinary.com/dvd8hlffl/image/upload/v1692179298/service3_gwvu5j.jpg);
 `;
 
 const ServiceDescription = styled.div`

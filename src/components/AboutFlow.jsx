@@ -4,8 +4,6 @@ import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Image1 from "../assets/about.jpg";
-import Image2 from "../assets/hero.jpg";
 import "./AboutFlow.css";
 
 const AboutFlow = () => {
@@ -28,7 +26,7 @@ const AboutFlow = () => {
     <Slider {...settings}>
       <>
         <SlideContainer>
-          <SlideImage src={Image1} alt="Image 1" />
+          <SlideImage src="https://res.cloudinary.com/dvd8hlffl/image/upload/v1692179302/about_w4i4k8.jpg" alt="Image 1" />
           <SlideText>
             <SlideTextH2>
               we specialize in handling confidential shipments with the utmost
@@ -45,7 +43,7 @@ const AboutFlow = () => {
       </>
       <>
         <SlideContainer>
-          <SlideImage src={Image2} alt="Image 2" />
+          <SlideImage src="https://res.cloudinary.com/dvd8hlffl/image/upload/v1692179292/hero_ptd8c9.jpg" alt="Image 2" />
           <SlideText>
             <SlideTextH2>Track a Package</SlideTextH2>
             <SlideTextP>
