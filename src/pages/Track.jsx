@@ -7,7 +7,7 @@ import HeroImg from "../assets/hero.jpg";
 
 const HeroContainer = styled.div`
   font-family: sans-serif;
-  background-image: url(${heroImage});
+  background-image: url(${HeroImage});
   background-size: cover;
   background-position: center;
   box-shadow: 0px 4px 4px 0px #00000040, inset 0 0 0 1000px rgba(0, 0, 0, 0.7);
