@@ -2,6 +2,23 @@ import React from "react";
 import styled from "styled-components";
 import Services from "../components/Services";
 import AboutService from "../components/AboutService";
+
+const About = () => {
+  return (
+    <>
+      <HeroContainer id="targetDiv">
+        <HeroText>
+          <HeroHeader>About Us</HeroHeader>
+          <HeroSub>
+            Home / <span style={{ color: "red" }}> About us</span>
+          </HeroSub>
+        </HeroText>
+      </HeroContainer>
+      <Services />
+      <AboutService />
+    </>
+  );
+};
 const HeroContainer = styled.div`
   font-family: sans-serif;
   background-image: url(https://res.cloudinary.com/dvd8hlffl/image/upload/v1692179293/heroImg_voxiay.jpg);
@@ -35,23 +52,5 @@ const HeroSub = styled.p`
   font-size: 1.5rem;
   margin-left: 10px;
 `;
-
-const About = () => {
- 
-  return (
-    <>
-      <HeroContainer id="targetDiv">
-        <HeroText>
-          <HeroHeader>About Us</HeroHeader>
-          <HeroSub>
-            Home / <span style={{ color: "red" }}> About us</span>
-          </HeroSub>
-        </HeroText>
-      </HeroContainer>
-      <Services />
-     <AboutService/>
-    </>
-  );
-};
 
 export default About;

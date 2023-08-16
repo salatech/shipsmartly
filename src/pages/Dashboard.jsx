@@ -30,156 +30,169 @@ const Dashboard = () => {
 
   return (
     <div className="tracking">
-     {trackingData ? (  
-      <PageContainer>
-        <Section>
-          <SectionTitle>Tracking Information</SectionTitle>
-          <FlexContainer>
-            <span>
-              <TrackBold>scheduled delivery date</TrackBold>
-               <TrackBoldData>{trackingData.scheduled_delivery_date}</TrackBoldData> 
-            </span>
-            <span>
-              <TrackBold>Delivery Status</TrackBold>
-             <TrackBoldData> {trackingData.delivery_status}</TrackBoldData>
-            </span>
-            <span>
-              <TrackBold>Tracking Number</TrackBold>
-             <TrackBoldData>{trackingData.tracking_code}</TrackBoldData> 
-            </span>
-          </FlexContainer>
-        </Section>
-        <TableSection>
-  <SectionTitle>Shipment Overview</SectionTitle>
-  <Table>
-    <tbody>
-      <TableRow>
-        <TableData>TRACKING ID</TableData>
-        <TableData>{trackingData.id}</TableData>
-      </TableRow>
-      <TableRow>
-        <TableData>SHIP DATE</TableData>
-        <TableData>{trackingData.scheduled_delivery_date}</TableData>
-      </TableRow>
-      <TableRow>
-        <TableData>STANDARD TRANSIT</TableData>
-        <TableData> ???? </TableData>
-      </TableRow>
-      <TableRow>
-        <TableData>SCHEDULED DELIVERY</TableData>
-        <TableData>{trackingData.scheduled_delivery_date}</TableData>
-      </TableRow>
-      {/* Add more rows as needed */}
-    </tbody>
-  </Table>
-</TableSection>
-<TableSection>
-  <SectionTitle>Services</SectionTitle>
-  <Table>
-    <tbody>
-      <TableRow>
-        <TableData>Carrier</TableData>
-        <TableData>{trackingData.carrier}</TableData>
-      </TableRow>
-      <TableRow>
-        <TableData>Terms</TableData>
-        <TableData>{trackingData.terms}</TableData>
-      </TableRow>
-      <TableRow>
-        <TableData>Special Handling Section</TableData>
-        <TableData>{trackingData.special_handling_section}</TableData>
-      </TableRow>
-    
-      {/* Add more rows as needed */}
-    </tbody>
-  </Table>
-</TableSection>
-<TableSection>
-  <SectionTitle>Packaging Detail</SectionTitle>
-  <Table>
-    <tbody>
-      <TableRow>
-        <TableData>Weight</TableData>
-        <TableData>???</TableData>
-      </TableRow>
-      <TableRow>
-        <TableData>Dimension</TableData>
-        <TableData>???</TableData>
-      </TableRow>
-      <TableRow>
-        <TableData>Total pieces</TableData>
-        <TableData>???</TableData>
-      </TableRow>
-      <TableRow>
-        <TableData>packaging</TableData>
-        <TableData>???</TableData>
-      </TableRow>
-      {/* Add more rows as needed */}
-    </tbody>
-  </Table>
-</TableSection>
+      {trackingData ? (
+        <PageContainer>
+          <Section>
+            <SectionTitle>Tracking Information</SectionTitle>
+            <FlexContainer>
+              <span>
+                <TrackBold>scheduled delivery date</TrackBold>
+                <TrackBoldData>
+                  {trackingData.scheduled_delivery_date}
+                </TrackBoldData>
+              </span>
+              <span>
+                <TrackBold>Delivery Status</TrackBold>
+                <TrackBoldData> {trackingData.delivery_status}</TrackBoldData>
+              </span>
+              <span>
+                <TrackBold>Tracking Number</TrackBold>
+                <TrackBoldData>{trackingData.tracking_code}</TrackBoldData>
+              </span>
+            </FlexContainer>
+          </Section>
+          <TableSection>
+            <SectionTitle>Shipment Overview</SectionTitle>
+            <Table>
+              <tbody>
+                <TableRow>
+                  <TableData>TRACKING ID</TableData>
+                  <TableData>{trackingData.id}</TableData>
+                </TableRow>
+                <TableRow>
+                  <TableData>SHIP DATE</TableData>
+                  <TableData>{trackingData.scheduled_delivery_date}</TableData>
+                </TableRow>
+              
+                <TableRow>
+                  <TableData>SCHEDULED DELIVERY</TableData>
+                  <TableData>{trackingData.scheduled_delivery_date}</TableData>
+                </TableRow>
+                <TableRow>
+                  <TableData>SHIPPER NAME</TableData>
+                  <TableData>{trackingData.order[0].shipper_name}</TableData>
+                </TableRow>
+                <TableRow>
+                  <TableData>RECIPIENT NAME</TableData>
+                  <TableData>{trackingData.order[0].recipient_name}</TableData>
+                </TableRow>
+                <TableRow>
+                  <TableData>DELIVERY ADDRESS LINE</TableData>
+                  <TableData>{trackingData.order[0].delivery_address_line_1}</TableData>
+                </TableRow>
+              </tbody>
+            </Table>
+          </TableSection>
+          <TableSection>
+            <SectionTitle>Services</SectionTitle>
+            <Table>
+              <tbody>
+                <TableRow>
+                  <TableData>Carrier</TableData>
+                  <TableData>{trackingData.carrier}</TableData>
+                </TableRow>
+                <TableRow>
+                  <TableData>Terms</TableData>
+                  <TableData>{trackingData.terms}</TableData>
+                </TableRow>
+                <TableRow>
+                  <TableData>Special Handling Section</TableData>
+                  <TableData>{trackingData.special_handling_section}</TableData>
+                </TableRow>
 
-<TimelineSection>
-  <SectionTitle>Travel History</SectionTitle>
-  <TimelineContainer>
-        <TimelineEvent>
-          {<TimelineLine />}
-          <TimelineDot />
-          <TimelineContent>
-            <TimelineTitle>{trackingData.current_location_1}</TimelineTitle>
-            <TimelineDate>{trackingData.country_1}</TimelineDate>
-            <TimelineDescription>Hello</TimelineDescription>
-          </TimelineContent>
-        </TimelineEvent>
-        <TimelineEvent>
-          {<TimelineLine />}
-          <TimelineDot />
-          <TimelineContent>
-            <TimelineTitle>{trackingData.current_location_2}</TimelineTitle>
-            <TimelineDate>{trackingData.country_2}</TimelineDate>
-            <TimelineDescription>Hello</TimelineDescription>
-          </TimelineContent>
-        </TimelineEvent>
-        <TimelineEvent>
-          {<TimelineLine />}
-          <TimelineDot />
-          <TimelineContent>
-            <TimelineTitle>{trackingData.current_location_3}</TimelineTitle>
-            <TimelineDate>{trackingData.country_3}</TimelineDate>
-            <TimelineDescription>Hello</TimelineDescription>
-          </TimelineContent>
-        </TimelineEvent>
-        <TimelineEvent>
-          {<TimelineLine />}
-          <TimelineDot />
-          <TimelineContent>
-            <TimelineTitle>{trackingData.current_location_4}</TimelineTitle>
-            <TimelineDate>{trackingData.country_4}</TimelineDate>
-            <TimelineDescription>Hello</TimelineDescription>
-          </TimelineContent>
-        </TimelineEvent>
-    </TimelineContainer>
-</TimelineSection>
-      </PageContainer>
-         ) : (
-            <p style={{textAlign:"center"}}>Loading tracking data...</p>
-          )} 
-      <div>
-        {/*  <TrackingTimeline className="track-line" /> */}</div>
- 
+                {/* Add more rows as needed */}
+              </tbody>
+            </Table>
+          </TableSection>
+          <TableSection>
+            <SectionTitle>Packaging Detail</SectionTitle>
+            <Table>
+              <tbody>
+                <TableRow>
+                  <TableData>Weight</TableData>
+                  <TableData>{trackingData.order[0].total_weight}</TableData>
+                </TableRow>
+                <TableRow>
+                  <TableData>Dimension</TableData>
+                  <TableData>{trackingData.order[0].products[0].dimensions}</TableData>
+                </TableRow>
+                <TableRow>
+                  <TableData>Total pieces</TableData>
+                  <TableData>{trackingData.order[0].total_quantity}</TableData>
+                </TableRow>
+                <TableRow>
+                  <TableData>packaging</TableData>
+                  <TableData>{trackingData.packaging}</TableData>
+                </TableRow>
+                {/* Add more rows as needed */}
+              </tbody>
+            </Table>
+          </TableSection>
 
-
-
+          <TimelineSection>
+            <SectionTitle>Travel History</SectionTitle>
+            <TimelineContainer>
+              <TimelineEvent>
+                {<TimelineLine />}
+                <TimelineDot />
+                <TimelineContent>
+                  <TimelineTitle>
+                    {trackingData.current_location_1}
+                  </TimelineTitle>
+                  <TimelineDate>{trackingData.country_and_city_1}</TimelineDate>
+                  <TimelineDescription>{trackingData.datetime_1}</TimelineDescription>
+                </TimelineContent>
+              </TimelineEvent>
+              <TimelineEvent>
+                {<TimelineLine />}
+                <TimelineDot />
+                <TimelineContent>
+                  <TimelineTitle>
+                    {trackingData.current_location_2}
+                  </TimelineTitle>
+                  <TimelineDate>{trackingData.country_and_city_2}</TimelineDate>
+                  <TimelineDescription>{trackingData.datetime_2}</TimelineDescription>
+                </TimelineContent>
+              </TimelineEvent>
+              <TimelineEvent>
+                {<TimelineLine />}
+                <TimelineDot />
+                <TimelineContent>
+                  <TimelineTitle>
+                    {trackingData.current_location_3}
+                  </TimelineTitle>
+                  <TimelineDate>{trackingData.country_and_city_3}</TimelineDate>
+                  <TimelineDescription>{trackingData.datetime_3}</TimelineDescription>
+                </TimelineContent>
+              </TimelineEvent>
+              <TimelineEvent>
+                {<TimelineLine />}
+                <TimelineDot />
+                <TimelineContent>
+                  <TimelineTitle>
+                    {trackingData.current_location_4}
+                  </TimelineTitle>
+                  <TimelineDate>{trackingData.country_and_city_4}</TimelineDate>
+                  <TimelineDescription>{trackingData.datetime_4}</TimelineDescription>
+                </TimelineContent>
+              </TimelineEvent>
+            </TimelineContainer>
+          </TimelineSection>
+        </PageContainer>
+      ) : (
+        <p style={{ textAlign: "center" }}>Loading tracking data...</p>
+      )}
+      <div>{/*  <TrackingTimeline className="track-line" /> */}</div>
     </div>
   );
 };
 
 const PageContainer = styled.div`
-margin: 50px auto 0 auto!important;
-max-width: 940px;
-font-family: sans-serif;
-@media (max-width: 768px) {
-padding: 0  15px;
+  margin: 50px auto 0 auto !important;
+  max-width: 940px;
+  font-family: sans-serif;
+  @media (max-width: 768px) {
+    padding: 0 15px;
   }
 `;
 
@@ -191,22 +204,22 @@ const SectionTitle = styled.h2`
   margin-bottom: 2rem;
   text-align: left;
   font-weight: 300;
-    line-height: 1.3;
-    letter-spacing: -.4px;
-    font-size: 1.25rem;
+  line-height: 1.3;
+  letter-spacing: -0.4px;
+  font-size: 1.25rem;
 `;
 const TrackBold = styled.h2`
-font-size: 1rem;
-@media (max-width: 768px) {
-  font-size: 0.7rem;
+  font-size: 1rem;
+  @media (max-width: 768px) {
+    font-size: 0.7rem;
   }
-`
+`;
 const TrackBoldData = styled.p`
-font-size: 1rem;
-@media (max-width: 768px) {
-  font-size: 0.7rem;
+  font-size: 1rem;
+  @media (max-width: 768px) {
+    font-size: 0.7rem;
   }
-`
+`;
 const FlexContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -222,18 +235,18 @@ const Table = styled.table`
 `;
 
 const TableRow = styled.tr`
-  border-bottom: .1px solid #ccc;
+  border-bottom: 0.1px solid #ccc;
   font-weight: 700;
-    font-size: .75rem;
-    line-height: 1.3;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  font-size: 0.75rem;
+  line-height: 1.3;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   &:nth-child(odd) {
-    background:#f2f2f2;
-  };
+    background: #f2f2f2;
+  }
   @media (max-width: 768px) {
     font-size: 0.5rem;
-    }
+  }
 `;
 
 const TableData = styled.td`
@@ -241,13 +254,12 @@ const TableData = styled.td`
 `;
 
 const TimelineSection = styled.div`
-margin: 50px auto 0 auto!important;
-max-width: 940px;
-font-family: sans-serif;
+  margin: 50px auto 0 auto !important;
+  max-width: 940px;
+  font-family: sans-serif;
 `;
 const TimelineContainer = styled.div`
   position: relative;
-
 `;
 
 const TimelineDot = styled.div`
@@ -257,13 +269,13 @@ const TimelineDot = styled.div`
   background-color: #254067; /* Adjust dot color */
   border-radius: 50%;
   left: -8px;
-  
+
   transform: translateY(-50%);
 `;
 const TimelineLine = styled.div`
   position: absolute;
   width: 2px;
-  background:  #254067;
+  background: #254067;
   left: 0px;
   top: 0;
   bottom: 0;
@@ -285,7 +297,7 @@ const TimelineContent = styled.div`
   width: 80%;
   @media (max-width: 768px) {
     padding: 0px 10px;
-    }
+  }
 `;
 
 const TimelineTitle = styled.h3`
@@ -294,7 +306,7 @@ const TimelineTitle = styled.h3`
   @media (max-width: 768px) {
     font-size: 0.7rem;
     padding: 0px 10px;
-    }
+  }
 `;
 
 const TimelineDate = styled.p`
@@ -303,7 +315,7 @@ const TimelineDate = styled.p`
   @media (max-width: 768px) {
     font-size: 0.7rem;
     padding: 0px 10px;
-    }
+  }
 `;
 
 const TimelineDescription = styled.p`
@@ -311,8 +323,7 @@ const TimelineDescription = styled.p`
   @media (max-width: 768px) {
     font-size: 0.7 rem;
     padding: 0px 10px;
-    }
+  }
 `;
-
 
 export default Dashboard;

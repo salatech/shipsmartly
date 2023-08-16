@@ -45,12 +45,12 @@ const abouts = [
       subContent4: "",
     },
    
-    {litTitle:"Our missions",
+    {litTitle:"Our mission",
       title: "Our Mission",
       content:
         "Our mission at ShipSmartly Delivery and Logistics is to be the unparalleled one-stop freight and logistics partner for companies of all sizes, empowering their growth with seamless solutions that span local deliveries to global industrial shipments. Rooted in financial strength and driven by substantial investments in cutting-edge technology and infrastructure, we are committed to continuously sourcing new clients and elevating cost efficiency. Our dedicated team of accredited professionals forms the backbone of our success, ensuring excellence in all aspects of transportation.",
     },
-    {litTitle:"our visons",
+    {litTitle:"our vison",
       title: "Our Vision",
       content:
         "As a globally recognized leader, ShipSmartly envisions itself as the ultimate third-party logistics solution and premier transportation provider, trusted by clients around the world. We aspire to expand our footprint across the globe while maintaining an unwavering commitment to reliability, flexibility, and cost-effectiveness. Our holistic approach to logistics solutions ensures that customer needs are not just met but exceeded, both within domestic boundaries and on the, international stage. We are dedicated to understanding and fulfilling our clients' requirements, contributing to their prosperity through seamless, dependable, and innovative logistics strategies",

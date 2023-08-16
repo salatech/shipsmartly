@@ -90,4 +90,9 @@ a {
   .menuItem {
     margin: 10px 0;
   }
+  .logo img{
+    width: 160px;
+    height: 35px;
+  
+  }
 }

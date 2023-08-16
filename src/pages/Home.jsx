@@ -9,7 +9,6 @@ import GetInTouch from '../components/GetInTouch'
 
 const Home = () => {
   useEffect(() => {
-    // Scroll to the target div
     const targetDiv = document.getElementById('targetDiv');
     if (targetDiv) {
       targetDiv.scrollIntoView({ behavior: 'auto', block: 'start', inline: 'nearest' });

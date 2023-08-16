@@ -1,20 +1,7 @@
 import React from 'react'
 import styled from "styled-components";
 const abouts = [
-    {  litTitle:"services",
-      title: "Our Services",
-       subTitle: "Confidential Shipping:",
-      subContent:
-        "We offer a range of shipping options tailored to your confidentiality needs. From discreet packaging to secure handling, your package is in safe hands",
-      subTitle2: "Customs Clearance:",
-      subContent2:
-        "Our expert team takes care of all customs formalities to ensure a smooth and hassle-free process for your international shipments.",
-      SubTitle3: "Express Delivery:",
-      subContent3:
-        "Need your package to arrive quickly? Our express delivery option guarantees swift and secure transit.",
-      subTitle4: "",
-      subContent4: "",
-    },
+  
     {litTitle:" values and commitments",
     title: "Our Core Values and Commitments",
    subTitle: "Customer Trust and Excellence:",
@@ -54,11 +41,6 @@ const abouts = [
       title: "Our Vision",
       content:
         "As a globally recognized leader, ShipSmartly envisions itself as the ultimate third-party logistics solution and premier transportation provider, trusted by clients around the world. We aspire to expand our footprint across the globe while maintaining an unwavering commitment to reliability, flexibility, and cost-effectiveness. Our holistic approach to logistics solutions ensures that customer needs are not just met but exceeded, both within domestic boundaries and on the, international stage. We are dedicated to understanding and fulfilling our clients' requirements, contributing to their prosperity through seamless, dependable, and innovative logistics strategies",
-    },
-    {litTitle:"pricing",
-      title: "Pricing",
-      content:
-        "Explore our transparent pricing plans based on package size, destination, and delivery speed. We believe in providing value for your money while ensuring the highest standards of security and confidentiality.",
     },
   ];
 const AboutService = ()  => {

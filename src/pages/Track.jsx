@@ -2,6 +2,63 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
+const Track = () => {
+  const [code, setCode] = useState("");
+
+  const navigate = useNavigate();
+  const handleSubmit = () => {
+    navigate(`/Dashboard/${code}`);
+  };
+  return (
+    <>
+      <HeroContainer>
+        <HeroText>
+          <HeroHeader>Track Your Package</HeroHeader>
+          <HeroSub>
+            Home / <span style={{ color: "red" }}> Track</span>
+          </HeroSub>
+        </HeroText>
+      </HeroContainer>
+      <SectionContainer>
+        <ContentWrapper>
+          <ImageContainer>
+            <Image
+              src="https://res.cloudinary.com/dvd8hlffl/image/upload/v1692179292/hero_ptd8c9.jpg"
+              alt="Image"
+            />
+          </ImageContainer>
+          {/* <h2 style={{ fontSize: "3.5rem" }}>Track a Package</h2>
+            <p style={{ fontSize: "1.1rem", fontWeight: "400" }}>
+              Enter your unique tracking number to get real-time updates on the
+              status and location of your confidential package. Our advanced
+              tracking technology ensures you're always informed about your
+              shipment's journey.
+            </p> */}
+          <InputContainer onSubmit={handleSubmit}>
+            <SlideTextH2>Track a Package</SlideTextH2>
+            <SlideTextP>
+              Enter your unique tracking number to get real-time updates on the
+              status and location of your confidential package. Our advanced
+              tracking technology ensures you're always informed about your
+              shipment's journey.
+            </SlideTextP>
+            <Input
+              required
+              name="code"
+              label="Tracking code"
+              type="text"
+              id="tracking code"
+              placeholder="Enter tracking code"
+              value={code}
+              onChange={(e) => setCode(e.target.value)}
+            />
+            <Button onClick={handleSubmit} type="submit" />
+          </InputContainer>
+        </ContentWrapper>
+      </SectionContainer>
+    </>
+  );
+};
 
 const HeroContainer = styled.div`
   font-family: sans-serif;
@@ -113,60 +170,5 @@ const Button = styled.input`
   width: 100%;
   text-transform: uppercase;
 `;
-
-const Track = () => {
-  const [code, setCode] = useState('');
-
-const navigate = useNavigate();
-const handleSubmit = () => {
-  navigate(`/Dashboard/${code}`);
-};
-  return (
-    <>
-      <HeroContainer>
-        <HeroText>
-          <HeroHeader>Track Your Package</HeroHeader>
-          <HeroSub>
-            Home / <span style={{ color: "red" }}> Track</span>
-          </HeroSub>
-        </HeroText>
-      </HeroContainer>
-      <SectionContainer>
-        <ContentWrapper>
-          <ImageContainer>
-            <Image src="https://res.cloudinary.com/dvd8hlffl/image/upload/v1692179292/hero_ptd8c9.jpg" alt="Image" />
-          </ImageContainer>
-             {/* <h2 style={{ fontSize: "3.5rem" }}>Track a Package</h2>
-            <p style={{ fontSize: "1.1rem", fontWeight: "400" }}>
-              Enter your unique tracking number to get real-time updates on the
-              status and location of your confidential package. Our advanced
-              tracking technology ensures you're always informed about your
-              shipment's journey.
-            </p> */}
-          <InputContainer onSubmit={handleSubmit }>
-          <SlideTextH2>Track a Package</SlideTextH2>
-            <SlideTextP>
-              Enter your unique tracking number to get real-time updates on the
-              status and location of your confidential package. Our advanced
-              tracking technology ensures you're always informed about your
-              shipment's journey.
-            </SlideTextP>
-            <Input
-            required
-            name="code"
-            label="Tracking code"
-            type="text"
-            id="tracking code"
-            placeholder="Enter tracking code"
-            value={code}
-            onChange={(e) => setCode(e.target.value)}
-            />
-            <Button onClick={handleSubmit} type="submit" />
-          </InputContainer>
-        </ContentWrapper>
-      </SectionContainer>
-    </>
-  );
-};
 
 export default Track;

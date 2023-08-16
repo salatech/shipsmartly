@@ -1,8 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import axios from "axios";
 
 const GetInTouch = () => {
+  const [submitted, setSubmitted] = useState(false); // State to manage form submission status
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
@@ -10,7 +12,7 @@ const GetInTouch = () => {
     const contactData = {
       name: formData.get("name"),
       email: formData.get("email"),
-      message: formData.get("message"), 
+      message: formData.get("message"),
     };
 
     try {
@@ -20,19 +22,26 @@ const GetInTouch = () => {
       );
 
       console.log("API response:", response.data);
-
+      setSubmitted(true); // Set submitted status to true
     
     } catch (error) {
       console.error("Error submitting form:", error);
     }
   };
+
   return (
     <GetInTouchContainer>
-      <Title>Get In Touch</Title>
-      <Subtitle>Get In Touch With Us</Subtitle>
-
-      <Form  onSubmit={handleSubmit}>
-        <FormGroup>
+      {submitted ? ( // Render different content based on submission status
+        <ThankYouMessage>
+          Thank you for reaching out! We'll get back to you soon.
+        </ThankYouMessage>
+      ) : (
+        // Original form content
+        <>
+          <Title>Get In Touch</Title>
+          <Subtitle>Get In Touch With Us</Subtitle>
+          <Form onSubmit={handleSubmit}>
+          <FormGroup>
           <Label htmlFor="name">Name:</Label>
           <Input  id="name" label="Name" name="name" autoFocus />
         </FormGroup>
@@ -56,11 +65,20 @@ const GetInTouch = () => {
             id="message"
           ></TextArea>
         </FormGroup>
-        <SubmitButton type="submit" />
-      </Form>
+            <SubmitButton type="submit" />
+          </Form>
+        </>
+      )}
     </GetInTouchContainer>
   );
 };
+
+const ThankYouMessage = styled.p`
+  text-align: center;
+  font-size: 18px;
+  color: #254067;
+`;
+
 
 const GetInTouchContainer = styled.div`
   padding: 2rem;
