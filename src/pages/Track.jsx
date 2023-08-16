@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import HeroImage from "../assets/HeroImage2.jpg";
-import Hero from "../assets/hero.jpg";
+import Hero from "../assets/Hero.jpg";
 
 
 const HeroContainer = styled.div`
