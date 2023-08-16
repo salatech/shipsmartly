@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import HeroImage from "../assets/HeroShip.jpg";
+import HeroImage from "../assets/heroShip.jpg";
 
 const Hero = ({ header, paragraph, buttonText }) => {
   const [code, setCode] = useState("");

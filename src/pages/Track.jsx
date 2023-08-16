@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import HeroImage from "../assets/HeroImage2.jpg";
-import Hero from "../assets/Hero.jpg";
+import HeroImage from "../assets/heroImage2.jpg";
+import HeroImg from "../assets/hero.jpg";
 
 
 const HeroContainer = styled.div`
   font-family: sans-serif;
-  background-image: url(${HeroImage});
+  background-image: url(${heroImage});
   background-size: cover;
   background-position: center;
   box-shadow: 0px 4px 4px 0px #00000040, inset 0 0 0 1000px rgba(0, 0, 0, 0.7);
@@ -136,7 +136,7 @@ const handleSubmit = () => {
       <SectionContainer>
         <ContentWrapper>
           <ImageContainer>
-            <Image src={Hero} alt="Image" />
+            <Image src={HeroImg} alt="Image" />
           </ImageContainer>
              {/* <h2 style={{ fontSize: "3.5rem" }}>Track a Package</h2>
             <p style={{ fontSize: "1.1rem", fontWeight: "400" }}>

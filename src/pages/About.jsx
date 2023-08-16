@@ -3,7 +3,7 @@ import styled from "styled-components";
 import HeroImage from "../assets/heroImg.jpg";
 import Services from "../components/Services";
 import AboutCon from "../components/AboutCon";
-import GetInTouch from "../components/GetinTouch";
+import GetInTouch from "../components/GetInTouch";
 const HeroContainer = styled.div`
   font-family: sans-serif;
   background-image: url(${HeroImage});
