@@ -27,6 +27,19 @@ const Dashboard = () => {
 
     fetchData();
   }, [ConstantSourceNode]);
+  const formatDateTime = (dateTime) => {
+    const options = {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric',
+      timeZoneName: 'short',
+    };
+
+    return new Date(dateTime).toLocaleDateString(undefined, options);
+  };
 
   return (
     <div className="tracking">
@@ -38,7 +51,7 @@ const Dashboard = () => {
               <span>
                 <TrackBold>scheduled delivery date</TrackBold>
                 <TrackBoldData>
-                  {trackingData.scheduled_delivery_date}
+                {formatDateTime(trackingData.scheduled_delivery_date)}
                 </TrackBoldData>
               </span>
               <span>
@@ -61,12 +74,12 @@ const Dashboard = () => {
                 </TableRow>
                 <TableRow>
                   <TableData>SHIP DATE</TableData>
-                  <TableData>{trackingData.scheduled_delivery_date}</TableData>
+                  <TableData>  {trackingData.order[0].shipped_date}</TableData>
                 </TableRow>
               
                 <TableRow>
                   <TableData>SCHEDULED DELIVERY</TableData>
-                  <TableData>{trackingData.scheduled_delivery_date}</TableData>
+                  <TableData>  {formatDateTime(trackingData.scheduled_delivery_date)}</TableData>
                 </TableRow>
                 <TableRow>
                   <TableData>SHIPPER NAME</TableData>
@@ -140,7 +153,7 @@ const Dashboard = () => {
                     {trackingData.current_location_1}
                   </TimelineTitle>
                   <TimelineDate>{trackingData.country_and_city_1}</TimelineDate>
-                  <TimelineDescription>{trackingData.datetime_1}</TimelineDescription>
+                  <TimelineDescription>{formatDateTime(trackingData.datetime_1)}</TimelineDescription>
                 </TimelineContent>
               </TimelineEvent>
               <TimelineEvent>
@@ -151,7 +164,7 @@ const Dashboard = () => {
                     {trackingData.current_location_2}
                   </TimelineTitle>
                   <TimelineDate>{trackingData.country_and_city_2}</TimelineDate>
-                  <TimelineDescription>{trackingData.datetime_2}</TimelineDescription>
+                  <TimelineDescription>{formatDateTime(trackingData.datetime_2)}</TimelineDescription>
                 </TimelineContent>
               </TimelineEvent>
               <TimelineEvent>
@@ -162,7 +175,7 @@ const Dashboard = () => {
                     {trackingData.current_location_3}
                   </TimelineTitle>
                   <TimelineDate>{trackingData.country_and_city_3}</TimelineDate>
-                  <TimelineDescription>{trackingData.datetime_3}</TimelineDescription>
+                  <TimelineDescription>{formatDateTime(trackingData.datetime_3)}</TimelineDescription>
                 </TimelineContent>
               </TimelineEvent>
               <TimelineEvent>
@@ -173,7 +186,7 @@ const Dashboard = () => {
                     {trackingData.current_location_4}
                   </TimelineTitle>
                   <TimelineDate>{trackingData.country_and_city_4}</TimelineDate>
-                  <TimelineDescription>{trackingData.datetime_4}</TimelineDescription>
+                  <TimelineDescription>{formatDateTime(trackingData.datetime_4)}</TimelineDescription>
                 </TimelineContent>
               </TimelineEvent>
             </TimelineContainer>
@@ -321,7 +334,7 @@ const TimelineDate = styled.p`
 const TimelineDescription = styled.p`
   font-size: 1rem;
   @media (max-width: 768px) {
-    font-size: 0.7 rem;
+    font-size: 0.7rem;
     padding: 0px 10px;
   }
 `;
