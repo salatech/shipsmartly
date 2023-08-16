@@ -92,14 +92,15 @@ const InputContainer = styled.form`
   @media (max-width: 768px) {
     max-width: 100%;
     justify-content: center;
+    margin-left: 0px;
   }
 `;
 
 const Input = styled.input`
-  width: 100%;
-  padding: 0.5rem;
+  width: 99%;
+  padding-left: 0.3rem;
   outline: none;
-  height: 30px;
+  height: 40px;
   border: 1px solid #254067;
 `;
 

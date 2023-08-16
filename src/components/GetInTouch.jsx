@@ -1,6 +1,67 @@
 import React from "react";
 import styled from "styled-components";
 import axios from "axios";
+
+const GetInTouch = () => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+
+    const contactData = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      message: formData.get("message"), 
+    };
+
+    try {
+      const response = await axios.post(
+        "https://api-shipsmartlyservices.com/api/v1/team/contact/",
+        contactData
+      );
+
+      console.log("API response:", response.data);
+
+    
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
+  };
+  return (
+    <GetInTouchContainer>
+      <Title>Get In Touch</Title>
+      <Subtitle>Get In Touch With Us</Subtitle>
+
+      <Form  onSubmit={handleSubmit}>
+        <FormGroup>
+          <Label htmlFor="name">Name:</Label>
+          <Input  id="name" label="Name" name="name" autoFocus />
+        </FormGroup>
+        <FormGroup>
+          <Label htmlFor="email">Email:</Label>
+          <Input
+  
+            id="email"
+            label="Email Address"
+            name="email"
+            autoComplete="email"
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label htmlFor="message">Message:</Label>
+          <TextArea
+          
+            name="message"
+            label="Message"
+            type="text"
+            id="message"
+          ></TextArea>
+        </FormGroup>
+        <SubmitButton type="submit" />
+      </Form>
+    </GetInTouchContainer>
+  );
+};
+
 const GetInTouchContainer = styled.div`
   padding: 2rem;
   background-color: #f4f4f4;
@@ -80,65 +141,5 @@ const Subtitle = styled.h2`
   font-family: sans-serif;
   color: #254067;
 `;
-
-const GetInTouch = () => {
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-
-    const contactData = {
-      name: formData.get("name"),
-      email: formData.get("email"),
-      message: formData.get("message"), // Use "message" instead of "Message"
-    };
-
-    try {
-      const response = await axios.post(
-        "https://api-shipsmartlyservices.com/api/v1/team/contact/",
-        contactData
-      );
-
-      console.log("API response:", response.data);
-
-      // Optionally, you can show a success message or perform other actions
-    } catch (error) {
-      console.error("Error submitting form:", error);
-    }
-  };
-  return (
-    <GetInTouchContainer>
-      <Title>Get In Touch</Title>
-      <Subtitle>Get In Touch With Us</Subtitle>
-
-      <Form noValidate onSubmit={handleSubmit}>
-        <FormGroup>
-          <Label htmlFor="name">Name:</Label>
-          <Input required id="name" label="Name" name="name" autoFocus />
-        </FormGroup>
-        <FormGroup>
-          <Label htmlFor="email">Email:</Label>
-          <Input
-            required
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label htmlFor="message">Message:</Label>
-          <TextArea
-            required
-            name="message"
-            label="Message"
-            type="text"
-            id="message"
-          ></TextArea>
-        </FormGroup>
-        <SubmitButton type="submit" />
-      </Form>
-    </GetInTouchContainer>
-  );
-};
 
 export default GetInTouch;

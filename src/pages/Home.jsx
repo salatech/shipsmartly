@@ -1,14 +1,17 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
-import Hero from '../components/Hero'
+
+import { useLocation } from 'react-router-dom';
 import GridSection from '../components/GridSection'
 import AboutFlow from '../components/AboutFlow'
 import Services from '../components/Services'
 import CustomerReviews from '../components/CustomersReview'
-import GetInTouch from '../components/GetInTouch'
-import Footer from '../components/Footer'
+import Hero from '../components/Hero';
+import AboutCon from '../components/AboutCon';
+
 const Home = () => {
+  
   return (
+ 
     <div>
       <Hero 
        header="ShipSmartly Logistics & Tracking Platform!"
@@ -18,7 +21,8 @@ const Home = () => {
        <AboutFlow />
        <Services />
        <CustomerReviews />
-       <GetInTouch />
+       <AboutCon />
+ 
 
     </div>
   )

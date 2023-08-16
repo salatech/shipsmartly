@@ -41,12 +41,14 @@ const Services = () => {
             </p>
           </ServiceDescription>
         </ServiceCard>
+
       </ServicesContainer>
     </>
   );
 };
 const ServicesContainer = styled.div`
   display: flex;
+  flex-wrap:wrap;
   justify-content: space-around;
   align-items: flex-start;
   padding: 2rem;
@@ -54,6 +56,7 @@ const ServicesContainer = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: center;
+    flex-wrap: nowrap;
   }
 `;
 

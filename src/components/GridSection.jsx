@@ -50,7 +50,7 @@ const GridContainer = styled.div`
   @media (max-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
     margin-top:-60px;
-    width: 80%;
+    width: 0%;
   }
 
 `;

@@ -6,9 +6,9 @@ import styled from "styled-components";
 
 const CustomerReviews = () => {
   const settings = {
-    dots: true,
+
     infinite: true,
-    speed: 500,
+    speed: 2000,
     slidesToShow: window.innerWidth >= 768 ? 3 : 1,
     slidesToScroll: 1,
     autoplay: true, // Enable automatic sliding

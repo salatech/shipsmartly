@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
-import Timeline from "../components/Timeline";
-
 const Dashboard = () => {
   const { code } = useParams();
   const [trackingData, setTrackingData] = useState(null);
@@ -121,9 +119,47 @@ const Dashboard = () => {
   </Table>
 </TableSection>
 
-
-
-
+<TimelineSection>
+  <SectionTitle>Travel History</SectionTitle>
+  <TimelineContainer>
+        <TimelineEvent>
+          {<TimelineLine />}
+          <TimelineDot />
+          <TimelineContent>
+            <TimelineTitle>{trackingData.current_location_1}</TimelineTitle>
+            <TimelineDate>{trackingData.country_1}</TimelineDate>
+            <TimelineDescription>Hello</TimelineDescription>
+          </TimelineContent>
+        </TimelineEvent>
+        <TimelineEvent>
+          {<TimelineLine />}
+          <TimelineDot />
+          <TimelineContent>
+            <TimelineTitle>{trackingData.current_location_2}</TimelineTitle>
+            <TimelineDate>{trackingData.country_2}</TimelineDate>
+            <TimelineDescription>Hello</TimelineDescription>
+          </TimelineContent>
+        </TimelineEvent>
+        <TimelineEvent>
+          {<TimelineLine />}
+          <TimelineDot />
+          <TimelineContent>
+            <TimelineTitle>{trackingData.current_location_3}</TimelineTitle>
+            <TimelineDate>{trackingData.country_3}</TimelineDate>
+            <TimelineDescription>Hello</TimelineDescription>
+          </TimelineContent>
+        </TimelineEvent>
+        <TimelineEvent>
+          {<TimelineLine />}
+          <TimelineDot />
+          <TimelineContent>
+            <TimelineTitle>{trackingData.current_location_4}</TimelineTitle>
+            <TimelineDate>{trackingData.country_4}</TimelineDate>
+            <TimelineDescription>Hello</TimelineDescription>
+          </TimelineContent>
+        </TimelineEvent>
+    </TimelineContainer>
+</TimelineSection>
       </PageContainer>
          ) : (
             <p>Loading tracking data...</p>
@@ -132,29 +168,7 @@ const Dashboard = () => {
         {/*  <TrackingTimeline className="track-line" /> */}</div>
  
 
-<TimelineSection>
-  <SectionTitle>Travel History</SectionTitle>
-  <Timeline
-    events={[
-      {
-        title: 'Package Dispatched',
-        date: 'August 10, 2023',
-        description: 'Your package has been dispatched for delivery.',
-      },
-      {
-        title: 'In Transit',
-        date: 'August 12, 2023',
-        description: 'Your package is in transit and on its way to the destination.',
-      },
-      {
-        title: 'Out for Delivery',
-        date: 'August 14, 2023',
-        description: 'Your package is out for delivery and will be delivered today.',
-      },
-      // Add more events as needed
-    ]}
-  />
-</TimelineSection>
+
 
     </div>
   );
@@ -213,6 +227,59 @@ const TimelineSection = styled.div`
 margin: 50px auto 0 auto!important;
 max-width: 940px;
 font-family: sans-serif;
+`;
+const TimelineContainer = styled.div`
+  position: relative;
+
+`;
+
+const TimelineDot = styled.div`
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background-color: #007bff; /* Adjust dot color */
+  border-radius: 50%;
+  left: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+`;
+const TimelineLine = styled.div`
+  position: absolute;
+  width: 2px;
+  background: linear-gradient(to bottom, #007bff, transparent, #007bff);
+  left: 0px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: -1; /* Ensure the line is behind the dots */
+`;
+
+const TimelineEvent = styled.div`
+  position: relative;
+  display: flex;
+  margin-bottom: 20px; /* Adjust spacing between events */
+  padding-left: 30px;
+`;
+
+const TimelineContent = styled.div`
+  background-color: #f4f4f4; /* Adjust content background color */
+  padding: 10px;
+  border-radius: 4px;
+  width: 80%;
+`;
+
+const TimelineTitle = styled.h3`
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+`;
+
+const TimelineDate = styled.p`
+  font-size: 1rem;
+  color: #777;
+`;
+
+const TimelineDescription = styled.p`
+  font-size: 1rem;
 `;
 
 
