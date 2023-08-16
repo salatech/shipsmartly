@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import HeroImage from "../assets/HeroImage2.jpg";
-import Hero from "../assets/Hero.jpg";
+import Hero from "../assets/hero.jpg";
 
 
 const HeroContainer = styled.div`
@@ -18,7 +18,20 @@ const HeroContainer = styled.div`
   @media (max-width: 768px) {
   }
 `;
-
+const SlideTextH2 = styled.h2`
+  font-weight: 700;
+  font-size: 2rem;
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+`;
+const SlideTextP = styled.p`
+  font-weight: normal;
+  line-height: 1.5;
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+  }
+`;
 const HeroHeader = styled.h1`
   font-size: 2.5rem;
   margin-left: 10px;
@@ -132,13 +145,20 @@ const handleSubmit = () => {
               shipment's journey.
             </p> */}
           <InputContainer onSubmit={handleSubmit }>
-         
+          <SlideTextH2>Track a Package</SlideTextH2>
+            <SlideTextP>
+              Enter your unique tracking number to get real-time updates on the
+              status and location of your confidential package. Our advanced
+              tracking technology ensures you're always informed about your
+              shipment's journey.
+            </SlideTextP>
             <Input
             required
             name="code"
             label="Tracking code"
             type="text"
             id="tracking code"
+            placeholder="Enter tracking code"
             value={code}
             onChange={(e) => setCode(e.target.value)}
             />
