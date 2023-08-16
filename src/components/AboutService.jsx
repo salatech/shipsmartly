@@ -61,38 +61,37 @@ const abouts = [
         "Explore our transparent pricing plans based on package size, destination, and delivery speed. We believe in providing value for your money while ensuring the highest standards of security and confidentiality.",
     },
   ];
-const AboutCon = ()  => {
-    const selectedAbout = abouts[1]; 
+const AboutService = ()  => {
+
   return (
   // Get the object at index 1
  <div>
-    {}
         <AboutContainer>
-       
+        {abouts.map((about, index) => (
           <Section>
-            <LitTitle>{selectedAbout.litTitle}</LitTitle>
-            <SectionTitle>{selectedAbout.title}</SectionTitle>
-            <SectionContent>{selectedAbout.content}</SectionContent>
+            <LitTitle>{about.litTitle}</LitTitle>
+            <SectionTitle>{about.title}</SectionTitle>
+            <SectionContent>{about.content}</SectionContent>
             <DivWrapper>
               <SubSection>
-                <SubSectionTitle>{selectedAbout.subTitle}</SubSectionTitle>
-                <SubSectionContent>{selectedAbout.subContent}</SubSectionContent>
+                <SubSectionTitle>{about.subTitle}</SubSectionTitle>
+                <SubSectionContent>{about.subContent}</SubSectionContent>
               </SubSection>
               <SubSection>
-                <SubSectionTitle>{selectedAbout.subTitle2}</SubSectionTitle>
-                <SubSectionContent>{selectedAbout.subContent2}</SubSectionContent>
+                <SubSectionTitle>{about.subTitle2}</SubSectionTitle>
+                <SubSectionContent>{about.subContent2}</SubSectionContent>
               </SubSection>
               <SubSection>
-                <SubSectionTitle>{selectedAbout.SubTitle3}</SubSectionTitle>
-                <SubSectionContent>{selectedAbout.subContent3}</SubSectionContent>
+                <SubSectionTitle>{about.SubTitle3}</SubSectionTitle>
+                <SubSectionContent>{about.subContent3}</SubSectionContent>
               </SubSection>
               <SubSection>
-                <SubSectionTitle>{selectedAbout.subTitle4}</SubSectionTitle>
-                <SubSectionContent>{selectedAbout.subContent4}</SubSectionContent>
+                <SubSectionTitle>{about.subTitle4}</SubSectionTitle>
+                <SubSectionContent>{about.subContent4}</SubSectionContent>
               </SubSection>
             </DivWrapper>
           </Section>
-        
+             ))}
         </AboutContainer>
   
     </div>
@@ -179,4 +178,4 @@ const SubSectionContent = styled.p`
     }
 
 `;
-export default AboutCon
+export default AboutService

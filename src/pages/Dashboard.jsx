@@ -257,13 +257,13 @@ const TimelineDot = styled.div`
   background-color: #254067; /* Adjust dot color */
   border-radius: 50%;
   left: -8px;
-  top: 50%;
+  
   transform: translateY(-50%);
 `;
 const TimelineLine = styled.div`
   position: absolute;
   width: 2px;
-  background: linear-gradient(to bottom, #254067, transparent,#254067);
+  background:  #254067;
   left: 0px;
   top: 0;
   bottom: 0;
@@ -283,13 +283,17 @@ const TimelineContent = styled.div`
   padding: 10px;
   border-radius: 4px;
   width: 80%;
+  @media (max-width: 768px) {
+    padding: 0px 10px;
+    }
 `;
 
 const TimelineTitle = styled.h3`
   font-size: 1rem;
   margin-bottom: 5px;
   @media (max-width: 768px) {
-    font-size: 0.7 rem;
+    font-size: 0.7rem;
+    padding: 0px 10px;
     }
 `;
 
@@ -297,7 +301,8 @@ const TimelineDate = styled.p`
   font-size: 1rem;
   color: #777;
   @media (max-width: 768px) {
-    font-size: 0.7 rem;
+    font-size: 0.7rem;
+    padding: 0px 10px;
     }
 `;
 
@@ -305,6 +310,7 @@ const TimelineDescription = styled.p`
   font-size: 1rem;
   @media (max-width: 768px) {
     font-size: 0.7 rem;
+    padding: 0px 10px;
     }
 `;
 

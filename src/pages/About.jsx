@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Services from "../components/Services";
-import AboutCon from "../components/AboutCon";
-import GetInTouch from "../components/GetInTouch";
+import AboutService from "../components/AboutService";
 const HeroContainer = styled.div`
   font-family: sans-serif;
   background-image: url(https://res.cloudinary.com/dvd8hlffl/image/upload/v1692179293/heroImg_voxiay.jpg);
@@ -41,7 +40,7 @@ const About = () => {
  
   return (
     <>
-      <HeroContainer>
+      <HeroContainer id="targetDiv">
         <HeroText>
           <HeroHeader>About Us</HeroHeader>
           <HeroSub>
@@ -50,8 +49,7 @@ const About = () => {
         </HeroText>
       </HeroContainer>
       <Services />
-     <AboutCon />
-     <GetInTouch />
+     <AboutService/>
     </>
   );
 };
