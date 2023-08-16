@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import HeroImage from "../assets/HeroImage.jpg";
+import HeroImage from "../assets/heroImg.jpg";
 import Services from "../components/Services";
 import AboutCon from "../components/AboutCon";
 import GetInTouch from "../components/GetinTouch";
