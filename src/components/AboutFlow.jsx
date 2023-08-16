@@ -26,11 +26,14 @@ const AboutFlow = () => {
     <Slider {...settings}>
       <>
         <SlideContainer>
-          <SlideImage src="https://res.cloudinary.com/dvd8hlffl/image/upload/v1692179302/about_w4i4k8.jpg" alt="Image 1" />
+          <SlideImage
+            src="https://res.cloudinary.com/dvd8hlffl/image/upload/v1692179302/about_w4i4k8.jpg"
+            alt="Image 1"
+          />
           <SlideText>
             <SlideTextH2>
               we specialize in handling confidential shipments with the utmost
-              discretion and security.
+              discretion.
             </SlideTextH2>
             <SlideTextP>
               With years of experience in the logistics industry, we have
@@ -43,32 +46,46 @@ const AboutFlow = () => {
       </>
       <>
         <SlideContainer>
-          <SlideImage src="https://res.cloudinary.com/dvd8hlffl/image/upload/v1692179292/hero_ptd8c9.jpg" alt="Image 2" />
+          <SlideImage
+            src="https://res.cloudinary.com/dvd8hlffl/image/upload/v1692179293/heroImg_voxiay.jpg"
+            
+            alt="Image 2"
+          />
           <SlideText>
-            <SlideTextH2>Track a Package</SlideTextH2>
+            <SlideTextH2>
+              At the heart of our mission is cultivating unwavering customer
+              trust
+            </SlideTextH2>
             <SlideTextP>
-              Enter your unique tracking number to get real-time updates on the
-              status and location of your confidential package. Our advanced
-              tracking technology ensures you're always informed about your
-              shipment's journey.
+              We are dedicated to delivering services of the utmost quality that
+              consistently surpasses customer expectations. Every facet of our
+              offerings is meticulously tailored to fulfill our client's unique
+              requirements.
             </SlideTextP>
-            <SearchContainer onSubmit={handleSubmit}>
-              <SlideTextInput
-                type="text"
-                placeholder="Enter tracking number"
-                required
-                name="code"
-                label="Tracking code"
-                id="tracking code"
-                value={code}
-                onChange={(e) => setCode(e.target.value)}
-              />
-              <SlideTextButton
-                type="submit"
-                value="Track"
-                onClick={handleSubmit}
-              />
-            </SearchContainer>
+     
+          </SlideText>
+        </SlideContainer>
+      </>
+      <>
+        <SlideContainer>
+          <SlideImage
+            src="https://res.cloudinary.com/dvd8hlffl/image/upload/v1692179296/heroShip_dacv6i.jpg"
+            
+            alt="Image 2"
+          />
+          <SlideText>
+            <SlideTextH2>
+              At the heart of our mission is cultivating unwavering customer
+              trust
+            </SlideTextH2>
+            <SlideTextP>
+              We are dedicated to delivering services of the utmost quality that
+              consistently surpasses customer expectations. Every facet of our
+              offerings is meticulously tailored to fulfill our client's unique
+              requirements.
+            </SlideTextP>
+      
+          
           </SlideText>
         </SlideContainer>
       </>

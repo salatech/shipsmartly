@@ -109,15 +109,20 @@ const SectionTitle = styled.h2`
   font-size: 2rem;
   margin-bottom: 1rem;
   text-align: center;
- 
   color:#254067;
+
+  @media (max-width: 768px) {
+  font-size: 1.5rem;
+  }
 `;
 const LitTitle = styled.p`
   font-size: 1rem;
   font-weight: 700;
-  font-family:monospace; 
   text-align: center;
   color:#254067;
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+    }
 `;
 
 const SectionContent = styled.p`
@@ -125,6 +130,7 @@ const SectionContent = styled.p`
   line-height: 1.6;
   color:#254067;
   margin-bottom: 1.5rem;
+
 `;
 
 const DivWrapper = styled.div`
@@ -132,7 +138,7 @@ const DivWrapper = styled.div`
   flex-wrap: wrap;
   flex-direction: column;
   font-family: sans-serif;
-  color:#254067;
+  color:#333;
 
   @media (min-width: 768px) {
     flex-direction: row;
@@ -144,7 +150,7 @@ const SubSection = styled.div`
   flex-basis: 100%;
   margin-bottom: 1.5rem;
   font-weight: 500;
-  color:#254067;
+  color:#333;
 
   @media (min-width: 768px) {
     flex-basis: calc(50% - 1rem);
@@ -155,11 +161,19 @@ const SubSection = styled.div`
 const SubSectionTitle = styled.h3`
   font-size: 1.3rem;
   margin-bottom: 0.5rem;
-  color:#254067;
+  color:#333;
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+    }
+  
 `;
 
 const SubSectionContent = styled.p`
   font-size: 1rem;
   line-height: 1.4;
+  @media (max-width: 768px) {
+    text-align: justify;
+    }
+
 `;
 export default AboutCon

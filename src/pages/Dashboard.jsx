@@ -36,16 +36,16 @@ const Dashboard = () => {
           <SectionTitle>Tracking Information</SectionTitle>
           <FlexContainer>
             <span>
-              <b>scheduled delivery date</b>
-               <p>{trackingData.scheduled_delivery_date}</p> 
+              <TrackBold>scheduled delivery date</TrackBold>
+               <TrackBoldData>{trackingData.scheduled_delivery_date}</TrackBoldData> 
             </span>
             <span>
-              <b>Delivery Status</b>
-             <p> {trackingData.delivery_status}</p>
+              <TrackBold>Delivery Status</TrackBold>
+             <TrackBoldData> {trackingData.delivery_status}</TrackBoldData>
             </span>
             <span>
-              <b>Tracking Number</b>
-             <p>{trackingData.tracking_code}</p> 
+              <TrackBold>Tracking Number</TrackBold>
+             <TrackBoldData>{trackingData.tracking_code}</TrackBoldData> 
             </span>
           </FlexContainer>
         </Section>
@@ -162,7 +162,7 @@ const Dashboard = () => {
 </TimelineSection>
       </PageContainer>
          ) : (
-            <p>Loading tracking data...</p>
+            <p style={{textAlign:"center"}}>Loading tracking data...</p>
           )} 
       <div>
         {/*  <TrackingTimeline className="track-line" /> */}</div>
@@ -178,6 +178,9 @@ const PageContainer = styled.div`
 margin: 50px auto 0 auto!important;
 max-width: 940px;
 font-family: sans-serif;
+@media (max-width: 768px) {
+padding: 0  15px;
+  }
 `;
 
 const Section = styled.div`
@@ -192,7 +195,18 @@ const SectionTitle = styled.h2`
     letter-spacing: -.4px;
     font-size: 1.25rem;
 `;
-
+const TrackBold = styled.h2`
+font-size: 1rem;
+@media (max-width: 768px) {
+  font-size: 0.7rem;
+  }
+`
+const TrackBoldData = styled.p`
+font-size: 1rem;
+@media (max-width: 768px) {
+  font-size: 0.7rem;
+  }
+`
 const FlexContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -216,7 +230,10 @@ const TableRow = styled.tr`
     letter-spacing: 1px;
   &:nth-child(odd) {
     background:#f2f2f2;
-  }
+  };
+  @media (max-width: 768px) {
+    font-size: 0.5rem;
+    }
 `;
 
 const TableData = styled.td`
@@ -237,7 +254,7 @@ const TimelineDot = styled.div`
   position: absolute;
   width: 16px;
   height: 16px;
-  background-color: #007bff; /* Adjust dot color */
+  background-color: #254067; /* Adjust dot color */
   border-radius: 50%;
   left: -8px;
   top: 50%;
@@ -246,7 +263,7 @@ const TimelineDot = styled.div`
 const TimelineLine = styled.div`
   position: absolute;
   width: 2px;
-  background: linear-gradient(to bottom, #007bff, transparent, #007bff);
+  background: linear-gradient(to bottom, #254067, transparent,#254067);
   left: 0px;
   top: 0;
   bottom: 0;
@@ -269,17 +286,26 @@ const TimelineContent = styled.div`
 `;
 
 const TimelineTitle = styled.h3`
-  font-size: 1.2rem;
+  font-size: 1rem;
   margin-bottom: 5px;
+  @media (max-width: 768px) {
+    font-size: 0.7 rem;
+    }
 `;
 
 const TimelineDate = styled.p`
   font-size: 1rem;
   color: #777;
+  @media (max-width: 768px) {
+    font-size: 0.7 rem;
+    }
 `;
 
 const TimelineDescription = styled.p`
   font-size: 1rem;
+  @media (max-width: 768px) {
+    font-size: 0.7 rem;
+    }
 `;
 
 
