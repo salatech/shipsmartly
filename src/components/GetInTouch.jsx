@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-
+import React from "react";
+import styled from "styled-components";
+import axios from "axios";
 const GetInTouchContainer = styled.div`
   padding: 2rem;
   background-color: #f4f4f4;
@@ -18,6 +18,8 @@ const Form = styled.form`
 
 const FormGroup = styled.div`
   margin-bottom: 1.5rem;
+  max-width:"100%";
+
 `;
 
 const Label = styled.label`
@@ -31,18 +33,27 @@ const Input = styled.input`
   padding: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
-  outline: none;
+  outline: none; 
+   @media (max-width: 768px) {
+    width: 100%;
+    height: 40px;
+    padding: 0;
+  }
+
 `;
 
 const TextArea = styled.textarea`
   width: 100%;
   padding: 0.5rem;
   border: 1px solid #ccc;
-  border-radius: 4px; 
+  border-radius: 4px;
+  @media (max-width: 768px) {
+    padding:  0.5rem 0;
+  }
 `;
 
-const SubmitButton = styled.button`
-  background-color:#254067;
+const SubmitButton = styled.input`
+  background-color: #254067;
   width: 100%;
   color: white;
   border: none;
@@ -51,26 +62,80 @@ const SubmitButton = styled.button`
   cursor: pointer;
 `;
 
+const Title = styled.p`
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-family: sans-serif;
+  color: #254067;
+  font-size: 14px;
+`;
+
+const Subtitle = styled.h2`
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  font-weight: 700;
+  font-family: sans-serif;
+  color: #254067;
+`;
+
 const GetInTouch = () => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+
+    const contactData = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      message: formData.get("message"), // Use "message" instead of "Message"
+    };
+
+    try {
+      const response = await axios.post(
+        "https://api-shipsmartlyservices.com/api/v1/team/contact/",
+        contactData
+      );
+
+      console.log("API response:", response.data);
+
+      // Optionally, you can show a success message or perform other actions
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
+  };
   return (
     <GetInTouchContainer>
-     <p style={{textAlign:"center", marginTop:"100px",marginBottom:"20px", fontWeight:"700", fontFamily:"sans-serif", color:"#254067", fontSize:"14px"}}>Get In Touch</p>
-    <h2 style={{textAlign:"center", marginTop:"10px",marginBottom:"30px", fontWeight:"700", fontFamily:"sans-serif", color:"#254067"}}>Get In Touch With Us</h2>
-    
-      <Form>
+      <Title>Get In Touch</Title>
+      <Subtitle>Get In Touch With Us</Subtitle>
+
+      <Form noValidate onSubmit={handleSubmit}>
         <FormGroup>
           <Label htmlFor="name">Name:</Label>
-          <Input type="text" id="name" name="name" placeholder="Your Name" />
+          <Input required id="name" label="Name" name="name" autoFocus />
         </FormGroup>
         <FormGroup>
           <Label htmlFor="email">Email:</Label>
-          <Input type="email" id="email" name="email" placeholder="Your Email" />
+          <Input
+            required
+            id="email"
+            label="Email Address"
+            name="email"
+            autoComplete="email"
+          />
         </FormGroup>
         <FormGroup>
           <Label htmlFor="message">Message:</Label>
-          <TextArea id="message" name="message" rows="4" placeholder="Your Message"></TextArea>
+          <TextArea
+            required
+            name="message"
+            label="Message"
+            type="text"
+            id="message"
+          ></TextArea>
         </FormGroup>
-        <SubmitButton type="submit">SUBMIT</SubmitButton>
+        <SubmitButton type="submit" />
       </Form>
     </GetInTouchContainer>
   );

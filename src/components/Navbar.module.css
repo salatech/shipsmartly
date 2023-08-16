@@ -1,80 +1,88 @@
 .navbar {
   font-family: sans-serif;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    background-color:  #254067;
-    box-shadow: 0 .2px #f1f1f1;
-    color: white;
-    position: sticky;
-    top: 0;
-    z-index: 100
-  }
-  
-  .logo {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #254067;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.menuIcon {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.bar {
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  margin: 3px 0;
+}
+
+.open .bar:nth-child(1) {
+  transform: rotate(45deg) translate(15px, 2px);
+}
+
+.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.open .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(10px, 2px);
+}
+
+.menu,
+a {
+  text-decoration: none;
+  list-style-type: none;
+  outline: none;
+  display: flex;
+}
+
+.menuItem {
+  margin: 0 35px;
+  color: white;
+}
+a {
+  color: white;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
   .menuIcon {
+    display: flex;
+  }
+
+  .menu {
     display: none;
     flex-direction: column;
-    cursor: pointer;
+    position: absolute;
+    top: 45px;
+    right: 0;
+    width: 40%;
+    height: 95vh;
+    background-color: #254067;
+    padding: 0;
   }
-  
-  .bar {
-    width: 30px;
-    height: 3px;
-    background-color: white;
-    margin: 3px 0;
+  .menu a {
+    margin-left: 15px;
+    left: 0;
   }
-  
-  .menu,a {
-    text-decoration: none;
-    list-style-type: none;
-    outline: none;
+  .menu.open {
     display: flex;
   }
-  
-  .menuItem {
-    margin: 0 35px;
-    color:white;
-    
-  }
-  a{
-    color: white;
-  }
-  
-  /* Media query for responsiveness */
-  @media (max-width: 768px) {
 
-    .menuIcon {
-      display: flex;
-    }
-  
-    .menu {
-      display: none;
-      flex-direction: column;
-      position: absolute;
-      top: 45px;
-      right: 0;
-      width: 40%;
-      height: 95vh;
-       background-color:  #254067;
-       padding: 0;
-    }
-  .menu a {
-    justify-content: flex-end;
-    margin-right: 15px ;
+  .menuItem {
+    margin: 10px 0;
   }
-    .menu.open {
-      display: flex;
-    }
-  
-    .menuItem {
-      margin: 10px 0;
-      
-    }
-  }
-  
+}

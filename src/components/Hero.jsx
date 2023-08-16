@@ -1,17 +1,35 @@
-import React from 'react';
-import styled from 'styled-components';
-import HeroImage from '../assets/HeroShip.jpg'
+import React, { useState } from "react";
+import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+import HeroImage from "../assets/HeroShip.jpg";
 
 const Hero = ({ header, paragraph, buttonText }) => {
+  const [code, setCode] = useState("");
+
+  const navigate = useNavigate();
+  const handleSubmit = () => {
+    navigate(`/Dashboard/${code}`);
+  };
   return (
     <HeroContainer>
       <HeroText>
         <HeroHeader>{header}</HeroHeader>
         <HeroParagraph>"{paragraph}"</HeroParagraph>
         <HeroTrack>Track your package</HeroTrack>
-        <HeroInputContainer>
-          <HeroInput type="text" placeholder="Enter tracking number" />
-          <HeroButton>{buttonText}</HeroButton>
+        <HeroInputContainer onSubmit={handleSubmit}>
+          <HeroInput
+            type="text"
+            placeholder="Enter tracking number"
+            required
+            name="code"
+            label="Tracking code"
+            id="tracking code"
+            value={code}
+            onChange={(e) => setCode(e.target.value)}
+          />
+          <HeroButton onClick={handleSubmit} type="submit">
+            {buttonText}
+          </HeroButton>
         </HeroInputContainer>
       </HeroText>
     </HeroContainer>
@@ -19,18 +37,18 @@ const Hero = ({ header, paragraph, buttonText }) => {
 };
 
 const HeroContainer = styled.div`
-font-family: sans-serif;
+  font-family: sans-serif;
   background-image: url(${HeroImage});
   background-size: cover;
   background-position: center;
-  box-shadow: 0px 4px 4px 0px #00000040,inset 0 0 0 1000px rgba(0,0,0,.7);
+  box-shadow: 0px 4px 4px 0px #00000040, inset 0 0 0 1000px rgba(0, 0, 0, 0.7);
   height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: aliceblue;
+  color: #dbe4eb;
   @media (max-width: 768px) {
-    height:80vh;
+    height: 80vh;
   }
 `;
 
@@ -47,18 +65,17 @@ const HeroHeader = styled.h1`
   font-weight: 700;
   @media (max-width: 768px) {
     font-size: 1.5rem;
+    margin-bottom: 2rem;
   }
-
 `;
 const HeroTrack = styled.h2`
   font-size: 1.8rem;
   margin-bottom: 2rem;
   font-weight: 500;
   @media (max-width: 768px) {
-    font-size:1rem;
+    font-size: 1rem;
     margin-bottom: 1rem;
   }
-
 `;
 const HeroParagraph = styled.p`
   font-size: 1rem;
@@ -66,11 +83,11 @@ const HeroParagraph = styled.p`
   font-weight: 500;
   @media (max-width: 768px) {
     font-size: 0.8rem;
-    font-weight: 300;
+    font-weight: 500;
   }
 `;
 
-const HeroInputContainer = styled.div`
+const HeroInputContainer = styled.form`
   display: flex;
   align-items: center;
   text-align: center;
@@ -79,27 +96,30 @@ const HeroInputContainer = styled.div`
 
 const HeroInput = styled.input`
   padding: 0.5rem;
-  border: 1px solid black;
+  border: none;
   height: 40px;
   width: 300px;
   outline: none;
-  font-size:16px;
+  font-size: 16px;
   @media (max-width: 768px) {
-    height: 35px;
-    width:200px;
+    height: 40px;
+    width: 200px;
+    padding: 0 0 0 0.2rem;
   }
-
 `;
 
 const HeroButton = styled.button`
   background-color: #254067;
   color: white;
   text-transform: uppercase;
-  border: .2px solid white;
+  border: none;
   cursor: pointer;
   height: 50px;
- width: 100px;
+  width: 100px;
   margin-left: 1rem;
+  @media (max-width: 768px) {
+    height: 40px;
+  }
 `;
 
 export default Hero;

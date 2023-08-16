@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import styles from './Navbar.module.css';
 import { Link } from 'react-router-dom';
@@ -18,9 +19,9 @@ const Navbar = () => {
         <div className={styles.bar}></div>
       </div>
       <ul className={`${styles.menu} ${menuOpen ? styles.open : ''}`}>
-       <Link to="/"> <li className={styles.menuItem}> Home </li></Link>
-      <Link to="/About"> <li className={styles.menuItem}> About</li> </Link>
-      <Link to="/Track"> <li className={styles.menuItem}> Track </li></Link>
+        <Link to="/"> <li className={styles.menuItem}> Home </li></Link>
+        <Link to="/About"> <li className={styles.menuItem}> About</li> </Link>
+        <Link to="/Track"> <li className={styles.menuItem}> Track </li></Link>
       </ul>
     </nav>
   );
