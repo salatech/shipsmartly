@@ -15,7 +15,7 @@ const Navbar = () => {
 
   return (
     <nav className={styles.navbar}>
-      <div className={styles.logo}><img src="https://res.cloudinary.com/dvd8hlffl/image/upload//c_thumb,w_160,h_39,g_auto/v1692199519/Free_Sample_By_Wix-removebg-preview_bccqnv.png" alt="" /></div>
+      <div className={styles.logo}><img src="https://res.cloudinary.com/dvd8hlffl/image/upload/v1692204639/Frame_3_2_tkkfk9.png" alt="" /></div>
       <div className={`${styles.menuIcon} ${menuOpen ? styles.open : ''}`} onClick={toggleMenu}>
         <div className={styles.bar}></div>
         <div className={styles.bar}></div>
