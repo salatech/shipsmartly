@@ -386,6 +386,10 @@ const ErrorMessage = styled.p`
   font-size: 1.5rem;
   text-align: center;
   color: red;
+  @media (max-width: 768px) {
+    font-size: .8rem;
+    padding: 0px 15px;
+  }
 `;
 const HomeButton = styled.button`
   margin-top: 1rem;
@@ -397,7 +401,6 @@ const HomeButton = styled.button`
   cursor: pointer;
   font-size: 1rem;
   transition: background-color 0.2s;
-
   &:hover {
     background-color: #1e3558;
   }
