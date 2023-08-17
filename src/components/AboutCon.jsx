@@ -164,9 +164,9 @@ const SubSection = styled.div`
 const SubSectionTitle = styled.h3`
   font-size: 1.3rem;
   margin-bottom: 0.5rem;
-  color:#333;
+  color:#254067;
   @media (max-width: 768px) {
-    font-size: 1.1rem;
+    font-size: 1rem;
     }
   
 `;
@@ -176,6 +176,7 @@ const SubSectionContent = styled.p`
   line-height: 1.4;
   @media (max-width: 768px) {
     text-align: justify;
+    font-size: 0.7rem;
     }
 
 `;

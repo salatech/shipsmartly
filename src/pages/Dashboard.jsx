@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
+import LoadingSpinner from "../components/LoadingSpinner";
 const Dashboard = () => {
   const { code } = useParams();
   const [trackingData, setTrackingData] = useState(null);
@@ -193,7 +194,7 @@ const Dashboard = () => {
           </TimelineSection>
         </PageContainer>
       ) : (
-        <p style={{ textAlign: "center" }}>Loading tracking data...</p>
+        <LoadingSpinner />
       )}
       <div>{/*  <TrackingTimeline className="track-line" /> */}</div>
     </div>
@@ -224,13 +225,13 @@ const SectionTitle = styled.h2`
 const TrackBold = styled.h2`
   font-size: 1rem;
   @media (max-width: 768px) {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
   }
 `;
 const TrackBoldData = styled.p`
   font-size: 1rem;
   @media (max-width: 768px) {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
   }
 `;
 const FlexContainer = styled.div`

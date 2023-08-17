@@ -30,11 +30,11 @@ const Services = () => {
         <ServiceCard>
           <ServiceImage3 />
           <ServiceDescription>
-            <h2>Express Delivery</h2>
-            <p>
-              Need your package to arrive quickly? Our express delivery option
+          <ServiceTitle>Express Delivery</ServiceTitle>
+          <ServiceParagraph>
+          Need your package to arrive quickly? Our express delivery option
               guarantees swift and secure transit.
-            </p>
+            </ServiceParagraph>
           </ServiceDescription>
         </ServiceCard>
 

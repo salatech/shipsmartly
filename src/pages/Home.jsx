@@ -17,7 +17,7 @@ const Home = () => {
   }, []);
   return (
  
-    <div id="targetDiv">
+    <div id="targetDiv" style={{overflowX:"hidden"}}>
       <Hero 
        header="ShipSmartly Logistics & Tracking Platform!"
        paragraph="Our mission is to provide secure and efficient shipping solutions for confidential packages across international borders."
