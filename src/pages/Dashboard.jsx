@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 import LoadingSpinner from "../components/LoadingSpinner";
 const Dashboard = () => {
   const { code } = useParams();
   const [trackingData, setTrackingData] = useState(null);
-
+  const [error, setError] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -20,23 +21,36 @@ const Dashboard = () => {
           }
         );
 
-        setTrackingData(response.data.data);
+        if (response.data.status === "success") {
+          setTrackingData(response.data.data);
+          setError(null); // Clear any previous error
+        } else {
+          setError(
+            "Tracking Order does not exist, please check your tracking code again"
+          );
+        }
       } catch (error) {
         console.error("Error fetching data:", error);
+        setError(
+          "Error fetching tracking data. Please check your tracking code again "
+        );
       }
     };
-
     fetchData();
   }, [ConstantSourceNode]);
+  const navigate = useNavigate();
+  const handleHomeButtonClick = () => {
+    navigate("/#/#targetDiv"); // Import the necessary function to navigate
+  };
   const formatDateTime = (dateTime) => {
     const options = {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-      hour: 'numeric',
-      minute: 'numeric',
-      second: 'numeric',
-      timeZoneName: 'short',
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      second: "numeric",
+      timeZoneName: "short",
     };
 
     return new Date(dateTime).toLocaleDateString(undefined, options);
@@ -44,7 +58,12 @@ const Dashboard = () => {
 
   return (
     <div className="tracking">
-      {trackingData ? (
+      {error ? (
+        <ErrorContainer>
+          <ErrorMessage>{error}</ErrorMessage>
+          <HomeButton onClick={handleHomeButtonClick}>Go Home</HomeButton>
+        </ErrorContainer>
+      ) : trackingData ? (
         <PageContainer>
           <Section>
             <SectionTitle>Tracking Information</SectionTitle>
@@ -52,7 +71,7 @@ const Dashboard = () => {
               <span>
                 <TrackBold>scheduled delivery date</TrackBold>
                 <TrackBoldData>
-                {formatDateTime(trackingData.scheduled_delivery_date)}
+                  {formatDateTime(trackingData.scheduled_delivery_date)}
                 </TrackBoldData>
               </span>
               <span>
@@ -75,12 +94,15 @@ const Dashboard = () => {
                 </TableRow>
                 <TableRow>
                   <TableData>SHIP DATE</TableData>
-                  <TableData>  {trackingData.order[0].shipped_date}</TableData>
+                  <TableData> {trackingData.order[0].shipped_date}</TableData>
                 </TableRow>
-              
+
                 <TableRow>
                   <TableData>SCHEDULED DELIVERY</TableData>
-                  <TableData>  {formatDateTime(trackingData.scheduled_delivery_date)}</TableData>
+                  <TableData>
+                    {" "}
+                    {formatDateTime(trackingData.scheduled_delivery_date)}
+                  </TableData>
                 </TableRow>
                 <TableRow>
                   <TableData>SHIPPER NAME</TableData>
@@ -92,7 +114,9 @@ const Dashboard = () => {
                 </TableRow>
                 <TableRow>
                   <TableData>DELIVERY ADDRESS LINE</TableData>
-                  <TableData>{trackingData.order[0].delivery_address_line_1}</TableData>
+                  <TableData>
+                    {trackingData.order[0].delivery_address_line_1}
+                  </TableData>
                 </TableRow>
               </tbody>
             </Table>
@@ -128,7 +152,9 @@ const Dashboard = () => {
                 </TableRow>
                 <TableRow>
                   <TableData>Dimension</TableData>
-                  <TableData>{trackingData.order[0].products[0].dimensions}</TableData>
+                  <TableData>
+                    {trackingData.order[0].products[0].dimensions}
+                  </TableData>
                 </TableRow>
                 <TableRow>
                   <TableData>Total pieces</TableData>
@@ -154,7 +180,9 @@ const Dashboard = () => {
                     {trackingData.current_location_1}
                   </TimelineTitle>
                   <TimelineDate>{trackingData.country_and_city_1}</TimelineDate>
-                  <TimelineDescription>{formatDateTime(trackingData.datetime_1)}</TimelineDescription>
+                  <TimelineDescription>
+                    {formatDateTime(trackingData.datetime_1)}
+                  </TimelineDescription>
                 </TimelineContent>
               </TimelineEvent>
               <TimelineEvent>
@@ -165,7 +193,9 @@ const Dashboard = () => {
                     {trackingData.current_location_2}
                   </TimelineTitle>
                   <TimelineDate>{trackingData.country_and_city_2}</TimelineDate>
-                  <TimelineDescription>{formatDateTime(trackingData.datetime_2)}</TimelineDescription>
+                  <TimelineDescription>
+                    {formatDateTime(trackingData.datetime_2)}
+                  </TimelineDescription>
                 </TimelineContent>
               </TimelineEvent>
               <TimelineEvent>
@@ -176,7 +206,9 @@ const Dashboard = () => {
                     {trackingData.current_location_3}
                   </TimelineTitle>
                   <TimelineDate>{trackingData.country_and_city_3}</TimelineDate>
-                  <TimelineDescription>{formatDateTime(trackingData.datetime_3)}</TimelineDescription>
+                  <TimelineDescription>
+                    {formatDateTime(trackingData.datetime_3)}
+                  </TimelineDescription>
                 </TimelineContent>
               </TimelineEvent>
               <TimelineEvent>
@@ -187,7 +219,9 @@ const Dashboard = () => {
                     {trackingData.current_location_4}
                   </TimelineTitle>
                   <TimelineDate>{trackingData.country_and_city_4}</TimelineDate>
-                  <TimelineDescription>{formatDateTime(trackingData.datetime_4)}</TimelineDescription>
+                  <TimelineDescription>
+                    {formatDateTime(trackingData.datetime_4)}
+                  </TimelineDescription>
                 </TimelineContent>
               </TimelineEvent>
             </TimelineContainer>
@@ -337,6 +371,35 @@ const TimelineDescription = styled.p`
   @media (max-width: 768px) {
     font-size: 0.7rem;
     padding: 0px 10px;
+  }
+`;
+const ErrorContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: monospace;
+`;
+
+const ErrorMessage = styled.p`
+  font-size: 1.5rem;
+  text-align: center;
+  color: red;
+`;
+const HomeButton = styled.button`
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #254067;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #1e3558;
   }
 `;
 
