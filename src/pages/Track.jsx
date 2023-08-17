@@ -4,8 +4,16 @@ import { useNavigate } from "react-router-dom";
 
 const Track = () => {
   const [code, setCode] = useState("");
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
   const navigate = useNavigate();
+
+  const handleInputChange = (e) => {
+    const inputValue = e.target.value;
+    setCode(inputValue);
+    setIsButtonDisabled(!inputValue); // Enable/disable the button based on input value presence
+  };
+
   const handleSubmit = () => {
     navigate(`/Dashboard/${code}`);
   };
@@ -27,13 +35,6 @@ const Track = () => {
               alt="Image"
             />
           </ImageContainer>
-          {/* <h2 style={{ fontSize: "3.5rem" }}>Track a Package</h2>
-            <p style={{ fontSize: "1.1rem", fontWeight: "400" }}>
-              Enter your unique tracking number to get real-time updates on the
-              status and location of your confidential package. Our advanced
-              tracking technology ensures you're always informed about your
-              shipment's journey.
-            </p> */}
           <InputContainer onSubmit={handleSubmit}>
             <SlideTextH2>Track a Package</SlideTextH2>
             <SlideTextP>
@@ -50,9 +51,9 @@ const Track = () => {
               id="tracking code"
               placeholder="Enter tracking code"
               value={code}
-              onChange={(e) => setCode(e.target.value)}
+              onChange={handleInputChange}
             />
-            <Button onClick={handleSubmit} type="submit" />
+            <Button onClick={handleSubmit} type="submit" disabled={isButtonDisabled} />
           </InputContainer>
         </ContentWrapper>
       </SectionContainer>

@@ -1,5 +1,5 @@
 import React from 'react'
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import {HashRouter, Routes, Route} from 'react-router-dom';
 import Home from './pages/Home'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -10,7 +10,7 @@ import Dashboard from './pages/Dashboard'
 function App() {
   return (
     <>
-    <BrowserRouter>
+    <HashRouter>
       <Navbar />
       <Routes>
         <Route path='/' element={<Home/>} />
@@ -18,7 +18,7 @@ function App() {
         <Route path ='/Track' element={<Track/>} /> 
         <Route path="/Dashboard/:code" element={<Dashboard/>} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
     <Footer />
   </>
   )

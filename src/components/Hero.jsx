@@ -4,11 +4,20 @@ import { useNavigate } from "react-router-dom";
 
 const Hero = ({ header, paragraph, buttonText }) => {
   const [code, setCode] = useState("");
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
   const navigate = useNavigate();
+
+  const handleInputChange = (e) => {
+    const inputValue = e.target.value;
+    setCode(inputValue);
+    setIsButtonDisabled(!inputValue); // Enable/disable the button based on input value presence
+  };
+
   const handleSubmit = () => {
     navigate(`/Dashboard/${code}`);
   };
+
   return (
     <HeroContainer>
       <HeroText>
@@ -24,9 +33,9 @@ const Hero = ({ header, paragraph, buttonText }) => {
             label="Tracking code"
             id="tracking code"
             value={code}
-            onChange={(e) => setCode(e.target.value)}
+            onChange={handleInputChange}
           />
-          <HeroButton onClick={handleSubmit} type="submit">
+          <HeroButton onClick={handleSubmit} type="submit" disabled={isButtonDisabled}>
             {buttonText}
           </HeroButton>
         </HeroInputContainer>
