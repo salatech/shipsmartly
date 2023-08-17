@@ -225,13 +225,13 @@ const SectionTitle = styled.h2`
 const TrackBold = styled.h2`
   font-size: 1rem;
   @media (max-width: 768px) {
-    font-size: 0.6rem;
+    font-size: 0.7rem;
   }
 `;
 const TrackBoldData = styled.p`
   font-size: 1rem;
   @media (max-width: 768px) {
-    font-size: 0.6rem;
+    font-size: 0.45rem;
   }
 `;
 const FlexContainer = styled.div`
