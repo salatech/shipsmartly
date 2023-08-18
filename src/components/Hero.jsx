@@ -46,7 +46,7 @@ const Hero = ({ header, paragraph, buttonText }) => {
 
 const HeroContainer = styled.div`
   font-family: sans-serif;
-  background-image: url(https://res.cloudinary.com/dvd8hlffl/image/upload/v1692179296/heroShip_dacv6i.jpg);
+  background-image: url(https://res.cloudinary.com/dvd8hlffl/image/upload/v1692401205/heroShip_dacv6i_o0uucj.webp);
   background-size: cover;
   background-position: center;
   box-shadow: 0px 4px 4px 0px #00000040, inset 0 0 0 1000px rgba(0, 0, 0, 0.7);

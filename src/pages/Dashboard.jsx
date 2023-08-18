@@ -178,66 +178,78 @@ const Dashboard = () => {
           <TimelineSection>
             <SectionTitle>Travel History</SectionTitle>
             <TimelineContainer>
-              <TimelineEvent>
-                {<TimelineLine />}
-                <TimelineDot />
-                <TimelineContent>
-                  <TimelineTitle>
-                    {trackingData.product_delivered_location}
-                  </TimelineTitle>
-                  <TimelineDate>
-                    {trackingData.product_delivered_country_and_city}
-                  </TimelineDate>
-                  <TimelineDescription>
-                    {formatDateTime(trackingData.product_delivered_datetime)}
-                  </TimelineDescription>
-                </TimelineContent>
-              </TimelineEvent>
-              <TimelineEvent>
-                {<TimelineLine />}
-                <TimelineDot />
-                <TimelineContent>
-                  <TimelineTitle>
-                    {trackingData.current_location_1}
-                  </TimelineTitle>
-                  <TimelineDate>{trackingData.country_and_city_1}</TimelineDate>
-                  <TimelineDescription>
-                    {formatDateTime(trackingData.datetime_1)}
-                  </TimelineDescription>
-                </TimelineContent>
-              </TimelineEvent>
-              
-              <TimelineEvent>
-                {<TimelineLine />}
-                <TimelineDot />
-                <TimelineContent>
-                  <TimelineTitle>
-                    {trackingData.current_location_2}
-                  </TimelineTitle>
-                  <TimelineDate>{trackingData.country_and_city_2}</TimelineDate>
-                  <TimelineDescription>
-                    {formatDateTime(trackingData.datetime_2)}
-                  </TimelineDescription>
-                </TimelineContent>
-              </TimelineEvent>
+            {trackingData.product_delivered_location && (
+            <TimelineEvent>
+              {<TimelineLine />}
+              <TimelineDot />
+              <TimelineContent>
+                <TimelineTitle>
+                  {trackingData.product_delivered_location}
+                </TimelineTitle>
+                <TimelineDate>
+                  {trackingData.product_delivered_country_and_city}
+                </TimelineDate>
+                <TimelineDescription>
+                  {formatDateTime(trackingData.product_delivered_datetime)}
+                </TimelineDescription>
+              </TimelineContent>
+            </TimelineEvent>
+          )}
 
-              {trackingData.datetime_4 && (
-                <TimelineEvent>
-                  {<TimelineLine />}
-                  <TimelineDot />
-                  <TimelineContent>
-                    <TimelineTitle>
-                      {trackingData.current_location_3}
-                    </TimelineTitle>
-                    <TimelineDate>
-                      {trackingData.country_and_city_3}
-                    </TimelineDate>
-                    <TimelineDescription>
-                      {formatDateTime(trackingData.datetime_3)}
-                    </TimelineDescription>
-                  </TimelineContent>
-                </TimelineEvent>
-              )}
+          {trackingData.current_location_1 && (
+            <TimelineEvent>
+              {<TimelineLine />}
+              <TimelineDot />
+              <TimelineContent>
+                <TimelineTitle>
+                  {trackingData.current_location_1}
+                </TimelineTitle>
+                <TimelineDate>
+                  {trackingData.country_and_city_1}
+                </TimelineDate>
+                <TimelineDescription>
+                  {formatDateTime(trackingData.datetime_1)}
+                </TimelineDescription>
+              </TimelineContent>
+            </TimelineEvent>
+          )}
+
+          {trackingData.current_location_2 && (
+            <TimelineEvent>
+              {<TimelineLine />}
+              <TimelineDot />
+              <TimelineContent>
+                <TimelineTitle>
+                  {trackingData.current_location_2}
+                </TimelineTitle>
+                <TimelineDate>
+                  {trackingData.country_and_city_2}
+                </TimelineDate>
+                <TimelineDescription>
+                  {formatDateTime(trackingData.datetime_2)}
+                </TimelineDescription>
+              </TimelineContent>
+            </TimelineEvent>
+          )}
+
+          {trackingData.current_location_3 && (
+            <TimelineEvent>
+              {<TimelineLine />}
+              <TimelineDot />
+              <TimelineContent>
+                <TimelineTitle>
+                  {trackingData.current_location_3}
+                </TimelineTitle>
+                <TimelineDate>
+                  {trackingData.country_and_city_3}
+                </TimelineDate>
+                <TimelineDescription>
+                  {formatDateTime(trackingData.datetime_3)}
+                </TimelineDescription>
+              </TimelineContent>
+            </TimelineEvent>
+          )}
+
             </TimelineContainer>
           </TimelineSection>
         </PageContainer>
