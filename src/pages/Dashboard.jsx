@@ -45,6 +45,10 @@ const Dashboard = () => {
     navigate("/#/#targetDiv"); // Import the necessary function to navigate
   };
   const formatDateTime = (dateTime) => {
+    if (!dateTime || isNaN(new Date(dateTime))) {
+      return null; // or return an empty string: ''
+    }
+
     const options = {
       year: "numeric",
       month: "long",
@@ -174,14 +178,16 @@ const Dashboard = () => {
           <TimelineSection>
             <SectionTitle>Travel History</SectionTitle>
             <TimelineContainer>
-            <TimelineEvent>
+              <TimelineEvent>
                 {<TimelineLine />}
                 <TimelineDot />
                 <TimelineContent>
                   <TimelineTitle>
                     {trackingData.product_delivered_location}
                   </TimelineTitle>
-                  <TimelineDate>{trackingData.product_delivered_country_and_city}</TimelineDate>
+                  <TimelineDate>
+                    {trackingData.product_delivered_country_and_city}
+                  </TimelineDate>
                   <TimelineDescription>
                     {formatDateTime(trackingData.product_delivered_datetime)}
                   </TimelineDescription>
@@ -200,6 +206,7 @@ const Dashboard = () => {
                   </TimelineDescription>
                 </TimelineContent>
               </TimelineEvent>
+              
               <TimelineEvent>
                 {<TimelineLine />}
                 <TimelineDot />
@@ -213,20 +220,24 @@ const Dashboard = () => {
                   </TimelineDescription>
                 </TimelineContent>
               </TimelineEvent>
-              <TimelineEvent>
-                {<TimelineLine />}
-                <TimelineDot />
-                <TimelineContent>
-                  <TimelineTitle>
-                    {trackingData.current_location_3}
-                  </TimelineTitle>
-                  <TimelineDate>{trackingData.country_and_city_3}</TimelineDate>
-                  <TimelineDescription>
-                    {formatDateTime(trackingData.datetime_3)}
-                  </TimelineDescription>
-                </TimelineContent>
-              </TimelineEvent>
-             
+
+              {trackingData.datetime_4 && (
+                <TimelineEvent>
+                  {<TimelineLine />}
+                  <TimelineDot />
+                  <TimelineContent>
+                    <TimelineTitle>
+                      {trackingData.current_location_3}
+                    </TimelineTitle>
+                    <TimelineDate>
+                      {trackingData.country_and_city_3}
+                    </TimelineDate>
+                    <TimelineDescription>
+                      {formatDateTime(trackingData.datetime_3)}
+                    </TimelineDescription>
+                  </TimelineContent>
+                </TimelineEvent>
+              )}
             </TimelineContainer>
           </TimelineSection>
         </PageContainer>

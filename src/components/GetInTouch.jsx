@@ -17,7 +17,7 @@ const GetInTouch = () => {
 
     try {
       const response = await axios.post(
-        "https://api-shipsmartlyservices.com/api/v1/team/contact/",
+        "https://api.shipsmartlyservices.com/api/v1/team/contact/",
         contactData
       );
 
