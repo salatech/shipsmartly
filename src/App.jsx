@@ -12,7 +12,7 @@ import { useEffect } from 'react';
 function App() {
   useEffect(() => {
     // Check if the URL contains "/admin"
-    if (window.location.pathname.includes('/admin')) {
+    if (window.location.pathname.startsWith('/admin')){
       // Redirect to the admin page of your API
       window.location.href = 'https://api.shipsmartlyservices.com/admin/';
     }

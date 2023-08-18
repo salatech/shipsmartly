@@ -174,6 +174,19 @@ const Dashboard = () => {
           <TimelineSection>
             <SectionTitle>Travel History</SectionTitle>
             <TimelineContainer>
+            <TimelineEvent>
+                {<TimelineLine />}
+                <TimelineDot />
+                <TimelineContent>
+                  <TimelineTitle>
+                    {trackingData.product_delivered_location}
+                  </TimelineTitle>
+                  <TimelineDate>{trackingData.product_delivered_country_and_city}</TimelineDate>
+                  <TimelineDescription>
+                    {formatDateTime(trackingData.product_delivered_datetime)}
+                  </TimelineDescription>
+                </TimelineContent>
+              </TimelineEvent>
               <TimelineEvent>
                 {<TimelineLine />}
                 <TimelineDot />
@@ -213,19 +226,7 @@ const Dashboard = () => {
                   </TimelineDescription>
                 </TimelineContent>
               </TimelineEvent>
-              <TimelineEvent>
-                {<TimelineLine />}
-                <TimelineDot />
-                <TimelineContent>
-                  <TimelineTitle>
-                    {trackingData.current_location_4}
-                  </TimelineTitle>
-                  <TimelineDate>{trackingData.country_and_city_4}</TimelineDate>
-                  <TimelineDescription>
-                    {formatDateTime(trackingData.datetime_4)}
-                  </TimelineDescription>
-                </TimelineContent>
-              </TimelineEvent>
+             
             </TimelineContainer>
           </TimelineSection>
         </PageContainer>
