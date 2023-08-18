@@ -4,6 +4,8 @@ import axios from "axios";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import LoadingSpinner from "../components/LoadingSpinner";
+import Receipt from "../components/Receipt";
+import Popup from "../components/Popup";
 const Dashboard = () => {
   const { code } = useParams();
   const [trackingData, setTrackingData] = useState(null);
@@ -12,7 +14,7 @@ const Dashboard = () => {
     const fetchData = async () => {
       try {
         const response = await axios.post(
-          "https://api-shipsmartlyservices.com/api/v1/tracking/tracking/",
+          "https://api.shipsmartlyservices.com/api/v1/tracking/tracking/",
           { tracking_code: code },
           {
             headers: {
@@ -57,7 +59,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="tracking">
+    <TrackingPage className="tracking">
       {error ? (
         <ErrorContainer>
           <ErrorMessage>{error}</ErrorMessage>
@@ -230,12 +232,13 @@ const Dashboard = () => {
       ) : (
         <LoadingSpinner />
       )}
-      <div>{/*  <TrackingTimeline className="track-line" /> */}</div>
-    </div>
+      <Receipt />
+      <Popup />
+    </TrackingPage>
   );
 };
 
-const PageContainer = styled.div`
+const TrackingPage = styled.div`
   margin: 50px auto 0 auto !important;
   max-width: 940px;
   font-family: sans-serif;
@@ -243,7 +246,7 @@ const PageContainer = styled.div`
     padding: 0 15px;
   }
 `;
-
+const PageContainer = styled.div``;
 const Section = styled.div`
   margin-bottom: 2rem;
 `;
@@ -387,7 +390,7 @@ const ErrorMessage = styled.p`
   text-align: center;
   color: red;
   @media (max-width: 768px) {
-    font-size: .8rem;
+    font-size: 0.7rem;
     padding: 0px 15px;
   }
 `;

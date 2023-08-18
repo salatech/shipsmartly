@@ -123,6 +123,7 @@ const Input = styled.input`
 
 const TextArea = styled.textarea`
   width: 100%;
+  height: 150px;
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 4px;

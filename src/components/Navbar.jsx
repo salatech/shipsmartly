@@ -31,6 +31,7 @@ const Navbar = () => {
         <Link to="/Track" onClick={closeMenu}>
           <li className={styles.menuItem}>Track</li>
         </Link>
+    
       </ul>
     </nav>
   );
