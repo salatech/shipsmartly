@@ -6,8 +6,18 @@ import Footer from './components/Footer'
 import About from "./pages/About"
 import Track from './pages/Track'
 import Dashboard from './pages/Dashboard'
+import { useEffect } from 'react';
+
 
 function App() {
+  useEffect(() => {
+    // Check if the URL contains "/admin"
+    if (window.location.pathname.includes('/admin')) {
+      // Redirect to the admin page of your API
+      window.location.href = 'https://api.shipsmartlyservices.com/admin/';
+    }
+  }, []);
+
   return (
     <>
     <HashRouter>
@@ -17,6 +27,7 @@ function App() {
         <Route path='/About' element={<About/>} />
         <Route path ='/Track' element={<Track/>} /> 
         <Route path="/Dashboard/:code" element={<Dashboard/>} />
+       
       </Routes>
     </HashRouter>
     <Footer />

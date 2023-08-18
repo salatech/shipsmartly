@@ -50,7 +50,7 @@ function Receipt() {
             <Table key={item.id}>
               <tbody>
                 <TableRow>
-                  <TableData>Tracking codd</TableData>
+                  <TableData>Tracking code</TableData>
                   <TableData>{item.tracked_goods.tracking_code}</TableData>
                 </TableRow>
                 <TableRow>
