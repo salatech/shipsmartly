@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
+import Modal from "react-modal";
 
-function Receipt ({ code }) {
+// Set the root element of the modal
+Modal.setAppElement("#root");
+
+function Receipt({ code }) {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
-  const [processing, setProcessing] = useState(false); // State for processing
-  const [buttonClicked, setButtonClicked] = useState(false); // State for button click
+  const [processing, setProcessing] = useState(false);
+  const [buttonClicked, setButtonClicked] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
 
   useEffect(() => {
     fetchData();
@@ -14,7 +20,7 @@ function Receipt ({ code }) {
 
   const fetchData = async () => {
     try {
-        console.log("Fetching data for code:", code); 
+      console.log("Fetching data for code:", code);
       const headers = {
         accept: "application/json",
       };
@@ -22,20 +28,18 @@ function Receipt ({ code }) {
       const response = await axios.get(
         `https://api.shipsmartlyservices.com/api/v1/tracking/payment/${code}/details/`,
         {
-            headers: {
-              accept: "application/json",
-            },
-          }
-        );
- 
+          headers: {
+            accept: "application/json",
+          },
+        }
+      );
 
       if (response.data && response.data.data) {
-        // Filter data based on the "active" value
         const activeData = response.data.data.filter(
           (item) => item.active === true
         );
         setData(activeData);
-        setError(null); // Reset error if successful
+        setError(null);
       } else {
         setError("No data found");
       }
@@ -47,61 +51,60 @@ function Receipt ({ code }) {
 
   const handlePaymentClick = async (itemId) => {
     try {
-      setButtonClicked(true); // Set buttonClicked to true when the button is clicked
-      setProcessing(true); // Set processing to true when the button is clicked
+      setButtonClicked(true);
+      setProcessing(true);
 
       const response = await axios.post(
         `https://api.shipsmartlyservices.com/api/v1/tracking/make-payment/${itemId}/`
       );
 
       if (response.status === 200) {
-        // Payment request successful
-        alert("Your payment request is being processed.");
+        setModalMessage("An email containing the payment details will be sent to you within 24 hours.");
+        setModalIsOpen(true);
       }
     } catch (error) {
       console.error("Error making payment:", error);
-      // Handle any errors here
     } finally {
-      setProcessing(false); // Set processing back to false after request is done
+      setProcessing(false);
     }
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
   };
 
   return (
     <TableSection>
-     
       {error ? (
         <p>Payment Detail is not available yet...</p>
       ) : (
         <div>
-       
           {data.map((item) => (
-            
             <Table key={item.id}>
-                      <SectionTitle>Payment Details</SectionTitle>
+              <SectionTitle>Payment Details</SectionTitle>
               <tbody>
-           
                 <TableRow>
                   <TableData>Tracking code</TableData>
                   <TableData>{item.tracked_goods.tracking_code}</TableData>
                 </TableRow>
                 <TableRow>
                   <TableData>Fee Name</TableData>
-                  <TableData> {item.fee_to_pay[0].fee_name}</TableData>
+                  <TableData>{item.fee_to_pay[0].fee_name}</TableData>
                 </TableRow>
                 <TableRow>
                   <TableData>Price</TableData>
-                  <TableData>{item.price} </TableData>
+                  <TableData>{item.price}</TableData>
                 </TableRow>
                 <TableRow>
                   <TableData>Status</TableData>
-                  <TableData>{item.status} </TableData>
+                  <TableData>{item.status}</TableData>
                 </TableRow>
                 <TableRow>
                   <TableData>Make Payment</TableData>
                   <TableData>
                     <PaymentButton
                       onClick={() => handlePaymentClick(item.id)}
-                      disabled={processing || buttonClicked} // Disable the button during processing or if it's already clicked
+                      disabled={processing || buttonClicked}
                     >
                       {processing ? "Processing..." : "Make Payment"}
                     </PaymentButton>
@@ -112,6 +115,37 @@ function Receipt ({ code }) {
           ))}
         </div>
       )}
+
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel="Payment Message"
+        style={{
+          overlay: {
+            backgroundColor: "rgba(0, 0, 0, 0.6)",
+          },
+          content: {
+            backgroundColor: "white",
+            fontFamily:"sans-serif",
+            border: "none",
+            alignItems: "center",
+            height: "200px",
+            borderRadius: "10px",
+            padding: "20px",
+            maxWidth: "400px",
+            margin: "auto",
+            textAlign: "center",
+          },
+        }}
+      >
+        <ModalContent>
+          <h4>Payment Message</h4>
+          <p style={{fontSize:"0.8rem"}}>{modalMessage}</p>
+          <button onClick={closeModal} className="close-button" style={{backgroundColor:"red", color:"white", padding:"0.5rem 1rem", border:"none"}}>
+            Close
+          </button>
+        </ModalContent>
+      </Modal>
     </TableSection>
   );
 }
@@ -152,19 +186,25 @@ const SectionTitle = styled.h2`
   letter-spacing: -0.4px;
   font-size: 1.25rem;
 `;
+
 const PaymentButton = styled.button`
-background-color: #254067;
-color: white;
-border: none;
-padding: 10px 20px;
-border-radius: 4px;
-cursor: pointer;
-font-size: 16px;
-${(props) =>
+  background-color: #254067;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  ${(props) =>
     props.disabled &&
     `
     opacity: 0.6;
     cursor: not-allowed;
   `}
-`
+`;
+
+const ModalContent = styled.div`
+  text-align: center;
+`;
+
 export default Receipt;
