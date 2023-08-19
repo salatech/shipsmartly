@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { HashRouter, Route, Routes, Navigate } from 'react-router-dom';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -11,7 +11,7 @@ import ContactUs from './pages/ContactUs';
 function App() {
 
   return (
-    <Router>
+    <HashRouter>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -22,7 +22,7 @@ function App() {
         {/* No need for a route for /admin */}
       </Routes>
       <Footer />
-    </Router>
+    </HashRouter>
   );
 }
 
