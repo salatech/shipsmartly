@@ -14,7 +14,7 @@ function App() {
   useEffect(() => {
     // Check if the URL path ends with "/admin"
     console.log(window.location.pathname);
-    if (window.location.pathname.endsWith('#/admin')) {
+    if (window.location.pathname.endsWith('admin')) {
       // Redirect to the admin page URL
       const adminUrl = 'http://api.shipsmartlyservices.com/admin';
 
