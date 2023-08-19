@@ -1,5 +1,5 @@
 import React from 'react'
-import {HashRouter, Routes, Route, Navigate} from 'react-router-dom';
+import {HashRouter, Routes, Route,Navigate } from 'react-router-dom';
 import Home from './pages/Home'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -15,7 +15,10 @@ function App() {
     // Check if the URL path ends with "/admin"
     if (window.location.pathname.endsWith('/admin')) {
       // Redirect to the admin page URL
-      window.location.href = 'https://api.shipsmartlyservices.com/admin/';
+      const adminUrl = 'http://api.shipsmartlyservices.com/admin';
+
+      // Redirect to the admin page URL
+      window.location.href = adminUrl;
     }
   }, []);
   
@@ -29,7 +32,7 @@ function App() {
         <Route path ='/Track' element={<Track/>} /> 
         <Route path ='/contact' element={<ContactUs/>} /> 
         <Route path="/Dashboard/:code" element={<Dashboard/>} />
-        <Route path="/admin" element={<Navigate to="http://api.shipsmartlyservices.com/admin" replace />} />
+        {/* <Route path="/admin" element={<Navigate to="http://api.shipsmartlyservices.com/admin" replace />} /> */}
   
       </Routes>
     </HashRouter>
