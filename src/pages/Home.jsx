@@ -5,7 +5,6 @@ import Services from '../components/Services'
 import CustomerReviews from '../components/CustomersReview'
 import Hero from '../components/Hero';
 import AboutCon from '../components/AboutCon';
-import GetInTouch from '../components/GetInTouch'
 
 const Home = () => {
   useEffect(() => {
@@ -17,7 +16,7 @@ const Home = () => {
   }, []);
   return (
  
-    <div id="targetDiv" style={{overflowX:"hidden"}}>
+    <div  style={{overflowX:"hidden"}}>
       <Hero 
        header="ShipSmartly Logistics & Tracking Platform!"
        paragraph="Our mission is to provide secure and efficient shipping solutions for confidential packages across international borders."
@@ -27,7 +26,7 @@ const Home = () => {
        <Services />
        <CustomerReviews />
        <AboutCon />
-<GetInTouch />
+
  
 
     </div>

@@ -31,7 +31,7 @@ const Track = () => {
         <ContentWrapper>
           <ImageContainer>
             <Image
-              src="https://res.cloudinary.com/dvd8hlffl/image/upload/v1692179292/hero_ptd8c9.jpg"
+              src="https://res.cloudinary.com/dvd8hlffl/image/upload/v1692402565/hero_ptd8c9_ztfyj6.jpg"
               alt="Image"
             />
           </ImageContainer>

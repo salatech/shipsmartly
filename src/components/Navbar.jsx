@@ -22,11 +22,14 @@ const Navbar = () => {
         <div className={styles.bar}></div>
       </div>
       <ul className={`${styles.menu} ${menuOpen ? styles.open : ''}`}>
-        <Link to="/#targetDiv" onClick={closeMenu}>
+        <Link to="/" onClick={closeMenu}>
           <li className={styles.menuItem}>Home</li>
         </Link>
         <Link to="/About" onClick={closeMenu}>
           <li className={styles.menuItem}>About</li>
+        </Link>
+        <Link to="/contact" onClick={closeMenu}>
+          <li className={styles.menuItem}>Contact us</li>
         </Link>
         <Link to="/Track" onClick={closeMenu}>
           <li className={styles.menuItem}>Track</li>

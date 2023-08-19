@@ -77,15 +77,15 @@ const ServiceImage = styled.div`
 `;
 
 const ServiceImage1 = styled(ServiceImage)`
-  background-image: url(https://res.cloudinary.com/dvd8hlffl/image/upload/v1692179304/service1_zh3oca.jpg);
+  background-image: url(https://res.cloudinary.com/dvd8hlffl/image/upload/v1692402566/service1_zh3oca_aghgw2.jpg);
 `;
 
 const ServiceImage2 = styled(ServiceImage)`
-  background-image: url(https://res.cloudinary.com/dvd8hlffl/image/upload/v1692179301/service2_fpbfrb.jpg);
+  background-image: url(https://res.cloudinary.com/dvd8hlffl/image/upload/v1692402566/service2_fpbfrb_pvfdg9.jpg);
 `;
 
 const ServiceImage3 = styled(ServiceImage)`
-  background-image: url(https://res.cloudinary.com/dvd8hlffl/image/upload/v1692179298/service3_gwvu5j.jpg);
+  background-image: url(https://res.cloudinary.com/dvd8hlffl/image/upload/v1692402566/service3_gwvu5j_bg9lyw.jpg);
 `;
 
 const ServiceDescription = styled.div`

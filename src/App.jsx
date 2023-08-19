@@ -6,6 +6,7 @@ import Footer from './components/Footer'
 import About from "./pages/About"
 import Track from './pages/Track'
 import Dashboard from './pages/Dashboard'
+import ContactUs from './pages/ContactUs';
 import { useEffect } from 'react';
 
 
@@ -26,6 +27,7 @@ function App() {
         <Route path='/' element={<Home/>} />
         <Route path='/About' element={<About/>} />
         <Route path ='/Track' element={<Track/>} /> 
+        <Route path ='/contact' element={<ContactUs/>} /> 
         <Route path="/Dashboard/:code" element={<Dashboard/>} />
        
       </Routes>
