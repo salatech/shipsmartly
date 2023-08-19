@@ -255,7 +255,7 @@ const Dashboard = () => {
       ) : (
         <LoadingSpinner />
       )}
-      <Receipt />
+      <Receipt  code={code}/>
   
     </TrackingPage>
   );

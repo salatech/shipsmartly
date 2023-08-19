@@ -12,13 +12,13 @@ import { useEffect } from 'react';
 
 function App() {
   useEffect(() => {
-    // Check if the URL contains "/admin"
-    if (window.location.pathname.startsWith('/admin')){
-      // Redirect to the admin page of your API
+    // Check if the URL path ends with "/admin"
+    if (window.location.pathname.endsWith('/admin')) {
+      // Redirect to the admin page URL
       window.location.href = 'https://api.shipsmartlyservices.com/admin/';
     }
   }, []);
-
+  
   return (
     <>
     <HashRouter>

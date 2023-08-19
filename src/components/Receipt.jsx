@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
 
-function Receipt() {
+function Receipt ({ code }) {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [processing, setProcessing] = useState(false); // State for processing
@@ -10,20 +10,24 @@ function Receipt() {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [code]);
 
   const fetchData = async () => {
     try {
+        console.log("Fetching data for code:", code); 
       const headers = {
         accept: "application/json",
       };
 
       const response = await axios.get(
-        "https://api.shipsmartlyservices.com/api/v1/tracking/payment/292DE3833D53F599/details/",
+        `https://api.shipsmartlyservices.com/api/v1/tracking/payment/${code}/details/`,
         {
-          headers: headers,
-        }
-      );
+            headers: {
+              accept: "application/json",
+            },
+          }
+        );
+ 
 
       if (response.data && response.data.data) {
         // Filter data based on the "active" value
