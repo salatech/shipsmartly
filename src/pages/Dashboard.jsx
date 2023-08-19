@@ -134,10 +134,7 @@ const Dashboard = () => {
                   <TableData>Carrier</TableData>
                   <TableData>{trackingData.carrier}</TableData>
                 </TableRow>
-                <TableRow>
-                  <TableData>Terms</TableData>
-                  <TableData>{trackingData.terms}</TableData>
-                </TableRow>
+           
                 <TableRow>
                   <TableData>Special Handling Section</TableData>
                   <TableData>{trackingData.special_handling_section}</TableData>
@@ -155,12 +152,7 @@ const Dashboard = () => {
                   <TableData>Weight</TableData>
                   <TableData>{trackingData.order[0].total_weight}</TableData>
                 </TableRow>
-                <TableRow>
-                  <TableData>Dimension</TableData>
-                  <TableData>
-                    {trackingData.order[0].products[0].dimensions}
-                  </TableData>
-                </TableRow>
+       
                 <TableRow>
                   <TableData>Total pieces</TableData>
                   <TableData>{trackingData.order[0].total_quantity}</TableData>
@@ -177,6 +169,11 @@ const Dashboard = () => {
 
 
           
+            
+
+<TimelineSection>
+            <SectionTitle>Travel History</SectionTitle>
+            <TimelineContainer>
             <TimelineEvent>
               {<TimelineLine />}
               <TimelineDot />
@@ -195,7 +192,8 @@ const Dashboard = () => {
             </TimelineEvent>
    
             {trackingData.current_location_1 && (
-            <TimelineEvent>
+  
+            <TimelineEvent className={trackingData.active_1 ? '' : 'faded'}>
               {<TimelineLine />}
               <TimelineDot />
               <TimelineContent>
@@ -208,12 +206,16 @@ const Dashboard = () => {
                 <TimelineDescription>
                   {formatDateTime(trackingData.datetime_1)}
                 </TimelineDescription>
+                <TimelineMessage>
+                {trackingData.message_1}
+                </TimelineMessage>
               </TimelineContent>
             </TimelineEvent>
+        
           )}
 
           {trackingData.current_location_2 && (
-            <TimelineEvent>
+            <TimelineEvent className={trackingData.active_2 ? '' : 'faded'}>
               {<TimelineLine />}
               <TimelineDot />
               <TimelineContent>
@@ -226,12 +228,15 @@ const Dashboard = () => {
                 <TimelineDescription>
                   {formatDateTime(trackingData.datetime_2)}
                 </TimelineDescription>
+                <TimelineMessage>
+                {trackingData.message_2}
+                </TimelineMessage>
               </TimelineContent>
             </TimelineEvent>
           )}
 
           {trackingData.current_location_3 && (
-            <TimelineEvent>
+            <TimelineEvent className={trackingData.active_3 ? '' : 'faded'} >
               {<TimelineLine />}
               <TimelineDot />
               <TimelineContent>
@@ -244,18 +249,39 @@ const Dashboard = () => {
                 <TimelineDescription>
                   {formatDateTime(trackingData.datetime_3)}
                 </TimelineDescription>
+                <TimelineMessage>
+                {trackingData.message_3}
+                </TimelineMessage>
               </TimelineContent>
             </TimelineEvent>
           )}
 
-<TimelineSection>
-            <SectionTitle>Travel History</SectionTitle>
-            <TimelineContainer>
-            {trackingData.product_delivered_location && (
-            <TimelineEvent>
+{trackingData.current_location_4 && (
+            <TimelineEvent className={trackingData.active_4 ? '' : 'faded'} >
               {<TimelineLine />}
               <TimelineDot />
               <TimelineContent>
+                <TimelineTitle>
+                  {trackingData.current_location_4}
+                </TimelineTitle>
+                <TimelineDate>
+                  {trackingData.country_and_city_4}
+                </TimelineDate>
+                <TimelineDescription>
+                  {formatDateTime(trackingData.datetime_4)}
+                </TimelineDescription>
+                <TimelineMessage>
+                {trackingData.message_4}
+                </TimelineMessage>
+              </TimelineContent>
+            </TimelineEvent>
+          )}
+            {trackingData.product_delivered_location && (
+            <TimelineEvent className={trackingData.active_4 ? '' : 'faded'}>
+              {<TimelineLine />}
+              <TimelineDot />
+              <TimelineContent>
+              <b>TO</b>
                 <TimelineTitle>
                   {trackingData.product_delivered_location}
                 </TimelineTitle>
@@ -377,12 +403,19 @@ const TimelineLine = styled.div`
 `;
 
 const TimelineEvent = styled.div`
-text-transform: uppercase;
+  text-transform: uppercase;
   position: relative;
   display: flex;
   margin-bottom: 20px; /* Adjust spacing between events */
   padding-left: 30px;
+
+  &.faded {
+    opacity: 0.3; /* Adjust the opacity as needed */
+  }
 `;
+
+// Rest of your styled-components...
+
 
 const TimelineContent = styled.div`
   background-color: #f4f4f4; /* Adjust content background color */
@@ -414,6 +447,14 @@ const TimelineDate = styled.p`
 
 const TimelineDescription = styled.p`
   font-size: 1rem;
+  @media (max-width: 768px) {
+    font-size: 0.7rem;
+    padding: 0px 10px;
+  }
+`;
+const TimelineMessage= styled.p`
+  font-size: .8rem;
+  color:green;
   @media (max-width: 768px) {
     font-size: 0.7rem;
     padding: 0px 10px;
