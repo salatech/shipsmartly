@@ -95,6 +95,10 @@ function Receipt({ code }) {
                   <TableData>{item.price}</TableData>
                 </TableRow>
                 <TableRow>
+                  <TableData>Deadline</TableData>
+                  <TableData>{item.deadline}</TableData>
+                </TableRow>
+                <TableRow>
                   <TableData>Status</TableData>
                   <TableData>{item.status}</TableData>
                 </TableRow>
