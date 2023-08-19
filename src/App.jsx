@@ -11,7 +11,7 @@ import ContactUs from './pages/ContactUs';
 function App() {
   // Use useEffect to trigger the redirection
   useEffect(() => {
-    if (window.location.pathname.startsWith('/admin')) {
+    if (window.location.pathname.endsWith('/admin')) {
       // Redirect to an external URL
       window.location.href = 'https://api.shipsmartlyservices.com/admin';
     }
