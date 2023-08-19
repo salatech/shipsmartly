@@ -14,7 +14,7 @@ function App() {
   useEffect(() => {
     // Check if the URL path ends with "/admin"
     console.log(window.location.pathname);
-    if (window.location.pathname.endsWith('admin')) {
+    if (window.location.pathname.endsWith('/admin')) {
       // Redirect to the admin page URL
       const adminUrl = 'http://api.shipsmartlyservices.com/admin';
 
@@ -33,7 +33,7 @@ function App() {
         <Route path ='/Track' element={<Track/>} /> 
         <Route path ='/contact' element={<ContactUs/>} /> 
         <Route path="/Dashboard/:code" element={<Dashboard/>} />
-        <Route path="/admin" element={<Navigate to="http://api.shipsmartlyservices.com/admin" replace />} />
+        {/* <Route path="/admin" element={<Navigate to="http://api.shipsmartlyservices.com/admin" replace />} /> */}
   
       </Routes>
     </HashRouter>
