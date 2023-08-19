@@ -13,7 +13,7 @@ function App() {
   useEffect(() => {
     if (window.location.pathname.endsWith('/admin')) {
       // Redirect to an external URL
-      window.location.href = 'https://api.shipsmartlyservices.com/admin';
+      window.location.href = 'https://google.com';
     }
   }, []);
 
