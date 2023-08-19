@@ -70,7 +70,7 @@ const AboutCon = ()  => {
         <AboutContainer>
        
           <Section>
-            <LitTitle>{selectedAbout.litTitle}</LitTitle>
+   
             <SectionTitle>{selectedAbout.title}</SectionTitle>
             <SectionContent>{selectedAbout.content}</SectionContent>
             <DivWrapper>

@@ -5,7 +5,6 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import LoadingSpinner from "../components/LoadingSpinner";
 import Receipt from "../components/Receipt";
-import Popup from "../components/Popup";
 const Dashboard = () => {
   const { code } = useParams();
   const [trackingData, setTrackingData] = useState(null);
@@ -257,7 +256,7 @@ const Dashboard = () => {
         <LoadingSpinner />
       )}
       <Receipt />
-      <Popup />
+  
     </TrackingPage>
   );
 };

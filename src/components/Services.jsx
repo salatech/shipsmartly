@@ -3,7 +3,6 @@ import styled from "styled-components";
 const Services = () => {
   return (
     <>
-      <Title>ShipSmartly Services</Title>
       <Subtitle>About ShipSmartly services</Subtitle>
       <ServicesContainer>
         <ServiceCard>

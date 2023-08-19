@@ -29,6 +29,21 @@ const GetInTouch = () => {
     }
   };
 
+  const [email, setEmail] = useState('');
+  const [isValid, setIsValid] = useState(true);
+
+  const isValidEmail = (email) => {
+    // Regular expression to match a valid email format
+    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+    return emailRegex.test(email);
+  };
+
+  const handleEmailChange = (event) => {
+    const newEmail = event.target.value;
+    setEmail(newEmail);
+    setIsValid(isValidEmail(newEmail));
+  };
+
   return (
     <GetInTouchContainer>
       {submitted ? ( // Render different content based on submission status
@@ -48,17 +63,18 @@ const GetInTouch = () => {
         <FormGroup>
           <Label htmlFor="email">Email:</Label>
           <Input
-  
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
-          />
+        name= "email"
+        type="email"
+      
+        value={email}
+        onChange={handleEmailChange}
+        style={{ borderColor: isValid ? 'green' : 'red' }}
+      />
+      {!isValid && <p>Please enter a valid email address.</p>}
         </FormGroup>
         <FormGroup>
           <Label htmlFor="message">Message:</Label>
           <TextArea
-          
             name="message"
             label="Message"
             type="text"
@@ -123,8 +139,8 @@ const Input = styled.input`
 
 const TextArea = styled.textarea`
   width: 100%;
-  height: 150px;
-  padding: 0.5rem;
+  height: 130px;
+  padding: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
   @media (max-width: 768px) {

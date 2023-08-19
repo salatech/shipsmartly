@@ -61,7 +61,7 @@ const CustomerReviews = () => {
 
   return (
     <ReviewsContainer>
-      <Title>Testimonial</Title>
+ 
       <Subtitle>Our Customers Feedback</Subtitle>
       <Slider {...settings}>
         {reviews.map((review, index) => (

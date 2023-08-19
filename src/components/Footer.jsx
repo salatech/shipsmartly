@@ -2,9 +2,11 @@ import React from "react";
 import styled from "styled-components";
 
 const FooterContainer = styled.div`
+bottom: 0;
+
 font-family: sans-serif;
-  background-color: #254067;
-  color: white;
+background-color: #254067;
+color: white;
 font-size: 14px;
 text-align: left;
 @media (max-width: 768px) {
