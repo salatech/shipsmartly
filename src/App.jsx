@@ -1,45 +1,36 @@
-import React from 'react'
-import {HashRouter, Routes, Route,Navigate } from 'react-router-dom';
-import Home from './pages/Home'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-import About from "./pages/About"
-import Track from './pages/Track'
-import Dashboard from './pages/Dashboard'
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import Home from './pages/Home';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import About from './pages/About';
+import Track from './pages/Track';
+import Dashboard from './pages/Dashboard';
 import ContactUs from './pages/ContactUs';
-import { useEffect } from 'react';
-
 
 function App() {
+  // Use useEffect to trigger the redirection
   useEffect(() => {
-    // Check if the URL path ends with "/admin"
-    console.log(window.location.pathname);
-    if (window.location.pathname.endsWith('/admin')) {
-      // Redirect to the admin page URL
-      const adminUrl = 'http://api.shipsmartlyservices.com/admin';
-
-      // Redirect to the admin page URL
-      window.location.href = adminUrl;
+    if (window.location.pathname.startsWith('/admin')) {
+      // Redirect to an external URL
+      window.location.href = 'https://api.shipsmartlyservices.com/admin';
     }
   }, []);
-  
+
   return (
-    <>
-    <HashRouter>
+    <Router>
       <Navbar />
       <Routes>
-        <Route path='/' element={<Home/>} />
-        <Route path='/About' element={<About/>} />
-        <Route path ='/Track' element={<Track/>} /> 
-        <Route path ='/contact' element={<ContactUs/>} /> 
-        <Route path="/Dashboard/:code" element={<Dashboard/>} />
-        {/* <Route path="/admin" element={<Navigate to="http://api.shipsmartlyservices.com/admin" replace />} /> */}
-  
+        <Route path="/" element={<Home />} />
+        <Route path="/About" element={<About />} />
+        <Route path="/Track" element={<Track />} />
+        <Route path="/contact" element={<ContactUs />} />
+        <Route path="/Dashboard/:code" element={<Dashboard />} />
+        {/* No need for a route for /admin */}
       </Routes>
-    </HashRouter>
-    <Footer />
-  </>
-  )
+      <Footer />
+    </Router>
+  );
 }
 
-export default App
+export default App;
