@@ -132,7 +132,7 @@ function Receipt({ code }) {
             height: "200px",
             borderRadius: "10px",
             padding: "20px",
-            maxWidth: "400px",
+            maxWidth: "300px",
             margin: "auto",
             textAlign: "center",
           },

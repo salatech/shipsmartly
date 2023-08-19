@@ -55,7 +55,7 @@ const Dashboard = () => {
       hour: "numeric",
       minute: "numeric",
       second: "numeric",
-      timeZoneName: "short",
+     
     };
 
     return new Date(dateTime).toLocaleDateString(undefined, options);
@@ -174,28 +174,27 @@ const Dashboard = () => {
             </Table>
           </TableSection>
 
-          <TimelineSection>
-            <SectionTitle>Travel History</SectionTitle>
-            <TimelineContainer>
-            {trackingData.product_delivered_location && (
+
+
+          
             <TimelineEvent>
               {<TimelineLine />}
               <TimelineDot />
               <TimelineContent>
-                <TimelineTitle>
-                  {trackingData.product_delivered_location}
+              <TimelineTitle>
+                 <b>FROM</b>
                 </TimelineTitle>
-                <TimelineDate>
-                  {trackingData.product_delivered_country_and_city}
-                </TimelineDate>
+                <TimelineTitle>
+                  {trackingData.order[0].shipper_address}
+                </TimelineTitle>
+            
                 <TimelineDescription>
-                  {formatDateTime(trackingData.product_delivered_datetime)}
+                  {formatDateTime(trackingData.order[0].shipped_date)}
                 </TimelineDescription>
               </TimelineContent>
             </TimelineEvent>
-          )}
-
-          {trackingData.current_location_1 && (
+   
+            {trackingData.current_location_1 && (
             <TimelineEvent>
               {<TimelineLine />}
               <TimelineDot />
@@ -249,6 +248,26 @@ const Dashboard = () => {
             </TimelineEvent>
           )}
 
+<TimelineSection>
+            <SectionTitle>Travel History</SectionTitle>
+            <TimelineContainer>
+            {trackingData.product_delivered_location && (
+            <TimelineEvent>
+              {<TimelineLine />}
+              <TimelineDot />
+              <TimelineContent>
+                <TimelineTitle>
+                  {trackingData.product_delivered_location}
+                </TimelineTitle>
+                <TimelineDate>
+                  {trackingData.product_delivered_country_and_city}
+                </TimelineDate>
+                <TimelineDescription>
+                  {formatDateTime(trackingData.product_delivered_datetime)}
+                </TimelineDescription>
+              </TimelineContent>
+            </TimelineEvent>
+          )}
             </TimelineContainer>
           </TimelineSection>
         </PageContainer>
@@ -358,6 +377,7 @@ const TimelineLine = styled.div`
 `;
 
 const TimelineEvent = styled.div`
+text-transform: uppercase;
   position: relative;
   display: flex;
   margin-bottom: 20px; /* Adjust spacing between events */

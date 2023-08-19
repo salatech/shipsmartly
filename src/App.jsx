@@ -1,5 +1,5 @@
-import React from 'react';
-import { HashRouter, Route, Routes, Navigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import {HashRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -9,9 +9,16 @@ import Dashboard from './pages/Dashboard';
 import ContactUs from './pages/ContactUs';
 
 function App() {
+  // Use useEffect to trigger the redirection
+  useEffect(() => {
+    if (window.location.href.endsWith('/##admin')) {
+      // Redirect to an external URL
+      window.location.href = 'https://api.shipsmartlyservices.com/admin';
+    }
+  }, []);
 
   return (
-    <HashRouter>
+    <Router>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -22,7 +29,7 @@ function App() {
         {/* No need for a route for /admin */}
       </Routes>
       <Footer />
-    </HashRouter>
+    </Router>
   );
 }
 
