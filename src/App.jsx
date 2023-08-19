@@ -33,7 +33,7 @@ function App() {
         <Route path ='/Track' element={<Track/>} /> 
         <Route path ='/contact' element={<ContactUs/>} /> 
         <Route path="/Dashboard/:code" element={<Dashboard/>} />
-        <Route path="admin" element={<Navigate to="http://api.shipsmartlyservices.com/admin" replace />} />
+        <Route path="/admin" element={<Navigate to="http://api.shipsmartlyservices.com/admin" replace />} />
   
       </Routes>
     </HashRouter>
