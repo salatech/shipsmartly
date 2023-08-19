@@ -75,9 +75,8 @@ function Receipt({ code }) {
 
   return (
     <TableSection>
-      {error ? (
-        <p>Payment Detail is not available yet...</p>
-      ) : (
+   
+     
         <div>
           {data.map((item) => (
             <Table key={item.id}>
@@ -114,7 +113,7 @@ function Receipt({ code }) {
             </Table>
           ))}
         </div>
-      )}
+
 
       <Modal
         isOpen={modalIsOpen}
