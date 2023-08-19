@@ -4,7 +4,7 @@ module.exports = function (app) {
   app.use(
     '/api',
     createProxyMiddleware({
-      target: 'http://api.shipsmartlyservices.com',
+      target: 'http://api.shipsmartlyservices.com/admin',
       changeOrigin: true,
     })
   );
