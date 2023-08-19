@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
@@ -9,13 +9,6 @@ import Dashboard from './pages/Dashboard';
 import ContactUs from './pages/ContactUs';
 
 function App() {
-  // Use useEffect to trigger the redirection
-  useEffect(() => {
-    if (window.location.pathname.('/admin')) {
-      // Redirect to an external URL
-      window.location.path = 'https://api-shipsmartlyservices.com/admin';
-    }
-  }, []);
 
   return (
     <Router>
