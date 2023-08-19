@@ -59,7 +59,7 @@ function Receipt({ code }) {
       );
 
       if (response.status === 200) {
-        setModalMessage("An email containing the payment details will be sent to you within 24 hours.");
+        setModalMessage("Processing Payment confirmation...");
         setModalIsOpen(true);
       }
     } catch (error) {
@@ -100,13 +100,13 @@ function Receipt({ code }) {
                   <TableData>{item.status}</TableData>
                 </TableRow>
                 <TableRow>
-                  <TableData>Make Payment</TableData>
+                  <TableData>Payment</TableData>
                   <TableData>
                     <PaymentButton
                       onClick={() => handlePaymentClick(item.id)}
                       disabled={processing || buttonClicked}
                     >
-                      {processing ? "Processing..." : "Make Payment"}
+                      {processing ? "Processing..." : "Confirm Payment"}
                     </PaymentButton>
                   </TableData>
                 </TableRow>
