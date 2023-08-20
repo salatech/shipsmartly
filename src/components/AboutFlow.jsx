@@ -47,7 +47,7 @@ const AboutFlow = () => {
       <>
         <SlideContainer>
           <SlideImage
-            src="https://res.cloudinary.com/dvd8hlffl/image/upload/v1692402566/heroShip_dacv6i_qolrlk.jpg"
+            src="https://res.cloudinary.com/dvd8hlffl/image/upload/v1692402565/heroImg_voxiay_kejh7m.jpg"
             
             alt="Image 2"
           />
@@ -69,7 +69,7 @@ const AboutFlow = () => {
       <>
         <SlideContainer>
           <SlideImage
-            src="https://res.cloudinary.com/dvd8hlffl/image/upload/v1692179296/heroShip_dacv6i.jpg"
+            src="https://res.cloudinary.com/dvd8hlffl/image/upload/v1692402566/heroShip_dacv6i_qolrlk.jpg"
             
             alt="Image 2"
           />

@@ -106,7 +106,7 @@ const Title = styled.p`
 
 const Subtitle = styled.h2`
   text-align: center;
-  margin-top: 10px;
+  margin-top: 50px;
   margin-bottom: 30px;
   font-weight: 700;
   font-family: sans-serif;
