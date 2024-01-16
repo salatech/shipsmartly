@@ -24,7 +24,7 @@ const Dashboard = () => {
 
         if (response.data.status === "success") {
           setTrackingData(response.data.data);
-          setError(null); // Clear any previous errors
+          setError(null); // Clear any previous error
         } else {
           setError(
             "Tracking Order does not exist, please check your tracking code again"
