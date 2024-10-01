@@ -26,7 +26,7 @@ function Receipt({ code }) {
 			};
 
 			const response = await axios.get(
-				`https://api-shipsmartlyservices.com/api/v1/tracking/payment/${code}/details/`,
+				`https://api.shipsmartlyservice.com/api/v1/tracking/payment/${code}/details/`,
 				{
 					headers: {
 						accept: "application/json",

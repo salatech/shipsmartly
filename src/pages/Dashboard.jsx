@@ -13,7 +13,7 @@ const Dashboard = () => {
 		const fetchData = async () => {
 			try {
 				const response = await axios.post(
-					"https://api-shipsmartlyservices.com/api/v1/tracking/tracking/",
+					"https://api.shipsmartlyservice.com/api/v1/tracking/tracking/",
 					{ tracking_code: code },
 					{
 						headers: {

@@ -18,7 +18,7 @@ function App() {
 	useEffect(() => {
 		if (window.location.href.endsWith("/##admin")) {
 			// Redirect to an external URL
-			window.location.href = "https://api-shipsmartlyservices.com";
+			window.location.href = "https://api.shipsmartlyservice.com";
 		}
 	}, []);
 
