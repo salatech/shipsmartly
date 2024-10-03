@@ -108,6 +108,7 @@ const SlideContainer = styled.div`
 
 const SlideImage = styled.img`
 	max-width: 50%;
+	width: 50%;
 	max-height: 100%;
 	@media (max-width: 768px) {
 		max-width: 100%;
