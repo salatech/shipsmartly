@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 const abouts = [
 	{
-		litTitle: "services",
 		title: "Our Services",
 		subTitle: "Confidential Shipping:",
 		subContent:
@@ -17,7 +16,6 @@ const abouts = [
 		subContent4: "",
 	},
 	{
-		title: "Our Core Values and Commitments",
 		subTitle: "Customer Trust and Excellence:",
 		subContent:
 			"At the heart of our mission is cultivating unwavering customer trust. We are dedicated to delivering services of the utmost quality that consistently surpasses customer expectations. Every facet of our offerings is meticulously tailored to fulfill our client's unique requirements.",
@@ -32,7 +30,6 @@ const abouts = [
 			"Our employees are the cornerstone of our success, and we honor each individual as a unique and invaluable asset. Upholding their dignity and recognizing their contributions, we provide a secure, dignified work environment with fair compensation and safe conditions. Our commitment extends beyond the workplace to support their personal and familial responsibilities.",
 	},
 	{
-		title: "How It Works:",
 		subTitle: "Secure Packaging:",
 		subContent:
 			"Our team expertly packages your confidential items, ensuring they are safeguarded throughout their journey.",

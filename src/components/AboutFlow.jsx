@@ -10,10 +10,10 @@ const AboutFlow = () => {
 	const settings = {
 		dots: true,
 		infinite: true,
-		speed: 5000,
+		speed: 1000,
 		slidesToShow: 1,
 		slidesToScroll: 1,
-		autoplay: true, // Enable automatic sliding
+		autoplay: false, // Enable automatic sliding
 		autoplaySpeed: 1000,
 	};
 	const [code, setCode] = useState("");
@@ -26,10 +26,7 @@ const AboutFlow = () => {
 		<Slider {...settings}>
 			<>
 				<SlideContainer>
-					<SlideImage
-						src="/service2.webp"
-						alt="Image 1"
-					/>
+					<ServiceImage2 />
 					<SlideText>
 						<SlideTextH2>
 							we specialize in handling confidential shipments with the utmost
@@ -46,10 +43,8 @@ const AboutFlow = () => {
 			</>
 			<>
 				<SlideContainer>
-					<SlideImage
-						src="/service1.webp"
-						alt="Image 2"
-					/>
+					<ServiceImage1 />
+
 					<SlideText>
 						<SlideTextH2>
 							At the heart of our mission is cultivating unwavering customer
@@ -66,10 +61,7 @@ const AboutFlow = () => {
 			</>
 			<>
 				<SlideContainer>
-					<SlideImage
-						src="/service3.webp"
-						alt="Image 2"
-					/>
+					<ServiceImage3 />
 					<SlideText>
 						<SlideTextH2>
 							At the heart of our mission is cultivating unwavering customer
@@ -90,9 +82,10 @@ const AboutFlow = () => {
 
 const SlideContainer = styled.div`
 	display: flex;
+	gap: 50px;
 	font-family: sans-serif;
-	justify-content: center;
-	align-items: center; /* Vertically center align the content */
+	justify-content: space-between;
+	align-items: center;
 	height: 450px;
 	margin: 0px 100px;
 	padding: 10px;
@@ -101,28 +94,50 @@ const SlideContainer = styled.div`
 	background-color: white;
 	@media (max-width: 768px) {
 		flex-direction: column;
-		padding: 0px;
+		gap: 0;
+		height: 100%;
+		padding: 0 20px;
 		margin: 0 10px;
 	}
 `;
 
 const SlideImage = styled.img`
-	max-width: 50%;
 	width: 50%;
 	max-height: 100%;
 	@media (max-width: 768px) {
-		max-width: 100%;
+		width: 100%;
 		margin: 0 10px;
 		max-height: 50%;
 	}
 `;
+const ServiceImage = styled.div`
+	width: 50vw;
+	height: 100%;
+	background-size: cover;
+	background-position: center;
+	@media (max-width: 768px) {
+		width: 100%;
+		height: 200px;
+	}
+`;
+
+const ServiceImage1 = styled(ServiceImage)`
+	background-image: url(/service1.webp);
+`;
+
+const ServiceImage2 = styled(ServiceImage)`
+	background-image: url(/service2.webp);
+`;
+
+const ServiceImage3 = styled(ServiceImage)`
+	background-image: url(/service3.webp);
+`;
 
 const SlideText = styled.div`
 	text-align: left;
-
-	padding-left: 20px;
+	width: 50vw;
 	@media (max-width: 768px) {
-		padding: 0 10px;
+		width: 100%;
 	}
 `;
 const SlideTextH2 = styled.h2`
@@ -135,36 +150,9 @@ const SlideTextH2 = styled.h2`
 const SlideTextP = styled.p`
 	font-weight: normal;
 	line-height: 1.5;
+	font-size: 1.2rem;
 	@media (max-width: 768px) {
 		font-size: 0.8rem;
-	}
-`;
-const SearchContainer = styled.form`
-	display: flex;
-	flex-direction: column;
-	text-align: left;
-`;
-const SlideTextInput = styled.input`
-	width: 70%;
-	height: 40px;
-	padding-left: 10px;
-	text-transform: uppercase;
-	outline: none;
-	@media (max-width: 768px) {
-		height: 35px;
-	}
-`;
-
-const SlideTextButton = styled.input`
-	height: 45px;
-	width: 70%;
-	margin-top: 10px;
-	text-transform: uppercase;
-	background-color: #254067;
-	color: white;
-	outline: none;
-	@media (max-width: 768px) {
-		height: 35px;
 	}
 `;
 
